@@ -1,5 +1,6 @@
 <template>
-  <div class="home">
+  <div class="dashboard">
+    <h1 subheading class="grey--text">Dashboard</h1>
     <v-btn large depressed>
       <v-icon>email</v-icon>
     </v-btn>
@@ -13,7 +14,7 @@
 // @ is an alias to /src
 
 export default {
-  name: "home",
+  name: "dashboard",
   components: {}
 };
 </script>
