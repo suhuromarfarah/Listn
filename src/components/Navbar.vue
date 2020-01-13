@@ -1,12 +1,12 @@
 <template>
   <nav>
-    <v-app-bar app flat color="primary" dark>
+    <v-app-bar app text color="primary" dark>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title>
         <span>Vuetify Demo</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn flat color="grey">
+      <v-btn text color="grey">
         Sign Out
         <v-icon right>exit_to_app</v-icon>
       </v-btn>
@@ -19,7 +19,7 @@
             <v-icon >{{link.icon}}</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-list-item-title >{{link.text}}</v-list-list-item-title>
+            <v-list-item-title >{{link.text}}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>

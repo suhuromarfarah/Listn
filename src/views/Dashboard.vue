@@ -1,14 +1,42 @@
 <template>
   <div class="dashboard">
-    <h1 subheading class="grey--text">Dashboard</h1>
-    <v-container class="my-5">
+    <v-subheader class="grey--text">Dashboard</v-subheader>
+    <v-container class="my-5 grey lighten-4">
       <p>This is the Dashboard Page</p>
-      <v-btn large depressed>
-        <v-icon>email</v-icon>
-      </v-btn>
-      <v-btn small depressed fab>
-        <v-icon>favorite</v-icon>
-      </v-btn>
+      <v-row wrap>
+        <v-col :xs="4" :md="3">
+          <v-btn outlined block>Button 1</v-btn>
+        </v-col>
+     <v-col :xs="2" :md="3">
+          <v-btn outlined block>Button 2</v-btn>
+        </v-col>
+        <v-col :xs="4" :md="3">
+          <v-btn outlined block>Button 3</v-btn>
+        </v-col>
+      <v-col :xs="2" :md="3">
+          <v-btn outlined block>Button 4</v-btn>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col :xs="6" :md="5">
+          <v-btn outlined block>Button 1</v-btn>
+        </v-col>
+        <v-col :xs="6" :md="5">
+          <v-btn outlined block>Button 2</v-btn>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>
+          <v-btn depressed block outlined>
+            <v-icon>email</v-icon>
+          </v-btn>
+        </v-col>
+        <v-col>
+          <v-btn md6 small depressed fab outlined>
+            <v-icon>favorite</v-icon>
+          </v-btn>
+        </v-col>
+      </v-row>
     </v-container>
   </div>
 </template>
