@@ -1,5 +1,7 @@
 # demo-vuetify
 
+Simple Vuetify Demo using Vue Router
+
 ## Project setup
 ```
 npm install
