@@ -1,6 +1,7 @@
 # demo-vuetify
 
-Simple Vuetify Demo using Vue Router
+Simple Vuetify Demo using Vue Router.
+No state
 
 ## Project setup
 ```
