@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Dashboard from "../views/Dashboard.vue";
 import Login from "../views/Login.vue";
 
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -17,11 +18,11 @@ const routes = [
     component: Dashboard
   },
   {
-    path: "/about",
-    name: "about",
+    path: "/MakePlaylist",
+    name: "MakePlaylist",
     // This is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
+      import(/* webpackChunkName: "MakePlaylist" */ "../views/MakePlaylist.vue")
   }
 ];
 

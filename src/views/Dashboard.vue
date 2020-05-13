@@ -1,6 +1,7 @@
 <template>
   <v-parallax
     dark
+    height="540"
     src="https://source.unsplash.com/5gn2soeAc40/1600x900"
   >
     <v-row

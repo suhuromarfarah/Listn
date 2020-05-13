@@ -1,13 +1,13 @@
 <template>
   <nav>
-    <v-app-bar app text color="primary" dark>
+    <v-app-bar app text color="transparent" transparent>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title>
-        <span>Vuetify Demo</span>
+        <span>Listn</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn text color="grey">
-        Sign Out
+        Sign in
         <v-icon right>exit_to_app</v-icon>
       </v-btn>
     </v-app-bar>
@@ -33,11 +33,13 @@ export default {
     return {
       drawer: false,
       links: [
-        { icon: "dashboard", text: "Dashboard", route: "/" },
-        { icon: "info", text: "About", route: "/about" },
+        { icon: "dashboard", text: "Home", route: "/" },
+        { icon: "info", text: "Make a playlist", route: "/MakePlaylist" },
         { icon: "info", text: "Login", route: "/login" }
       ]
     };
   }
 };
 </script>
+
+
