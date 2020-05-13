@@ -54,11 +54,19 @@
           <v-col class="text-center">
             <h3 class="headline black--text">{{ name }}</h3>
             <span class="black--text text--lighten-1">{{ title }}</span>
+
+            <template>
+              <div class="text-center">
+                <v-btn class="ma-2" tile color="black" dark>Save</v-btn>
+                <v-btn class="ma-2" tile color="black" dark>Share</v-btn>
+              </div>
+            </template>
+
           </v-col>
         </v-row>
       </v-row>
     </v-img>
-    <v-form>
+    <v-form width="200">
       <v-container>
         <v-row>
           <v-col
@@ -72,6 +80,7 @@
               color="dark-grey lighten-2"
               label="Enter playlist name"
             ></v-text-field>
+            
           </v-col>
           <v-col
             cols="12"
@@ -145,7 +154,7 @@
         autoUpdate: true,
         friends: ['Sandra Adams', 'Britta Holt'],
         isUpdating: false,
-        name: 'Hip Hop',
+        name: 'Playlist Name',
         people: [
           { header: 'Group 1' },
           { name: 'Sandra Adams', group: 'Group 1', avatar: srcs[1] },
@@ -159,7 +168,7 @@
           { name: 'John Smith', group: 'Group 2', avatar: srcs[1] },
           { name: 'Sandra Williams', group: 'Group 2', avatar: srcs[3] },
         ],
-        title: 'The summer breeze',
+        title: 'Description',
       }
     },
 
