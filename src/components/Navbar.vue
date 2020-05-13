@@ -34,7 +34,8 @@ export default {
       drawer: false,
       links: [
         { icon: "dashboard", text: "Dashboard", route: "/" },
-        { icon: "info", text: "About", route: "/about" }
+        { icon: "info", text: "About", route: "/about" },
+        { icon: "info", text: "Login", route: "/login" }
       ]
     };
   }

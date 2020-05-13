@@ -2,9 +2,7 @@
   <v-app>
     <navbar />
     <v-content class="ma-4 mb-4">
-      <router-view>
-        
-      </router-view>
+      <router-view/>
     </v-content>
   </v-app>
 </template>
