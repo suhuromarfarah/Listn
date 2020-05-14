@@ -115,15 +115,7 @@
             >
             
             </v-text-field>
-            <!-- 1. Added search button that runs load videos function-->
-            <v-btn class="ma-2" @click="loadVideos" tile color="black" dark>Search</v-btn>
-            <hr>
-            <!-- 3. Added add and delete buttons that call add and delete song functions-->
-            <v-btn class="ma-2" @click="addSong" tile color="black" dark>Add to Playlist</v-btn>
-            <v-btn class="ma-2" @click="deleteSong" tile color="black" dark>Delete Song</v-btn>
-          </v-col>
-          <!-- 5. import template for youtube video embed-->
-            <template v-for="(song,index) in songList">
+                <template v-for="(song,index) in songList">
         <template v-if="show">
           <div :key="index" class="song-container">
             <youtube
@@ -140,6 +132,15 @@
           </div>
         </template>
       </template>
+            <!-- 1. Added search button that runs load videos function-->
+            <v-btn class="ma-2" @click="loadVideos" tile color="black" dark>Search</v-btn>
+            <hr>
+            <!-- 3. Added add and delete buttons that call add and delete song functions-->
+            <v-btn class="ma-2" @click="addSong" tile color="black" dark>Add to Playlist</v-btn>
+            <v-btn class="ma-2" @click="deleteSong" tile color="black" dark>Delete Song</v-btn>
+          </v-col>
+          <!-- 5. import template for youtube video embed-->
+        
 
     
         </v-row>
