@@ -6,6 +6,8 @@
     align="center"
     tile
   >
+  <v-card-title class="justify-center"> Playlist Title</v-card-title>
+  <v-card-subtitle> Playlist Describition</v-card-subtitle>
           <v-list-item>
             <v-list-item-icon class="mx-10">
               <v-btn icon>
