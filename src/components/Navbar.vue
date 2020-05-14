@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <v-app-bar flat app text color="transparent" transparent>
+    <v-app-bar class="mx-12" flat app text color="transparent" transparent>
       <v-toolbar-title>
         <span>Listn</span>
       </v-toolbar-title>

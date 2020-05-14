@@ -1,7 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Dashboard from "../views/Dashboard.vue";
-import Login from "../views/Login.vue";
+import Login from "../views/Login.vue"; 
+// import Navbar from "src/components/Navbar.vue"; 
 
 
 Vue.use(VueRouter);
