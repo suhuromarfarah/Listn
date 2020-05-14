@@ -34,6 +34,7 @@
                 <v-icon>mdi-dots-vertical</v-icon>
               </v-btn>
             </template>
+
             <v-list>
               <v-list-item @click="isUpdating = true">
                 <v-list-item-action>
@@ -44,6 +45,7 @@
                 </v-list-item-content>
               </v-list-item>
             </v-list>
+
           </v-menu>
         </v-col>
         <v-row
@@ -69,6 +71,7 @@
         </v-row>
       </v-row>
     </v-img>
+
     <v-form width="200">
       <v-container>
         <v-row>
@@ -102,6 +105,7 @@
           <v-col cols="12" >
             <v-text-field 
               filled
+              chips
               color="blue-grey lighten-2"
               label="Find a song"
               item-text="songName"
@@ -170,7 +174,8 @@ import YouTube from "simple-youtube-api";
       songList: [],
       randomPlaylistID: 0,
       show: true,
-      playlistName: ""
+      playlistName: "",
+      title: ""
         // autoUpdate: true,
         // friends: ['Sandra Adams', 'Britta Holt'],
         // isUpdating: false,
