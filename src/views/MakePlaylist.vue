@@ -1,6 +1,6 @@
 <template>
   <v-card
-    color="darkgrey darken-1"
+    color="grey darken-1"
     dark
     :loading="isUpdating"
   >
@@ -141,6 +141,7 @@
 
 <script>
   export default {
+    name: "MakePlaylist",
     data () {
       const srcs = {
         1: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
