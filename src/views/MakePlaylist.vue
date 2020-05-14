@@ -1,6 +1,6 @@
 <template>
   <v-card
-    color="darkgrey darken-1"
+    color="grey darken-1"
     dark
     :loading="isUpdating"
   >
@@ -57,9 +57,11 @@
 
             <template>
               <div class="text-center">
+
                 <!-- import create button to call create playlist-->
                 <v-btn class="ma-2" @click="createPlaylist" tile color="black" dark>Create</v-btn>
-                <v-btn class="ma-2" tile color="black" dark>Share</v-btn>
+                <v-btn class="ma-2" tile color="black" :to="{name: 'playlist'}" dark>Share</v-btn>
+
               </div>
             </template>
 
@@ -147,6 +149,7 @@
 import PlaylistService from "../PlaylistService";
 import YouTube from "simple-youtube-api";
   export default {
+    name: "MakePlaylist",
     data () {
          
       // const srcs = {
