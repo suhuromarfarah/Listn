@@ -52,12 +52,13 @@
           justify="center"
         >
           <v-col class="text-center">
-            <h3 class="headline black--text">{{ name }}</h3>
+            <h3 class="headline black--text">{{ playlistName }}</h3>
             <span class="black--text text--lighten-1">{{ title }}</span>
 
             <template>
               <div class="text-center">
-                <v-btn class="ma-2" tile color="black" dark>Save</v-btn>
+                <!-- import create button to call create playlist-->
+                <v-btn class="ma-2" @click="createPlaylist" tile color="black" dark>Create</v-btn>
                 <v-btn class="ma-2" tile color="black" dark>Share</v-btn>
               </div>
             </template>
@@ -74,7 +75,7 @@
             md="6"
           >
             <v-text-field
-              v-model="name"
+              v-model="playlistName"
               :disabled="isUpdating"
               filled
               color="dark-grey lighten-2"
@@ -94,44 +95,47 @@
               label="Enter playlist description"
             ></v-text-field>
           </v-col>
+
+          <!-- Song search field-->
           <v-col cols="12" >
-            <v-autocomplete 
+            <v-text-field 
               filled
-              chips
               color="blue-grey lighten-2"
-              label="Song"
-              item-text="name"
-              item-value="name"
+              label="Find a song"
+              item-text="songName"
+              item-value="songName"
               multiple
+              v-model="songName"
             >
-            </v-autocomplete>
+            
+            </v-text-field>
+            <!-- 1. Added search button that runs load videos function-->
+            <v-btn class="ma-2" @click="loadVideos" tile color="black" dark>Search</v-btn>
+            <hr>
+            <!-- 3. Added add and delete buttons that call add and delete song functions-->
+            <v-btn class="ma-2" @click="addSong" tile color="black" dark>Add to Playlist</v-btn>
+            <v-btn class="ma-2" @click="deleteSong" tile color="black" dark>Delete Song</v-btn>
           </v-col>
+          <!-- 5. import template for youtube video embed-->
+            <template v-for="(song,index) in songList">
+        <template v-if="show">
+          <div :key="index" class="song-container">
+            <youtube
+              player-width="30"
+              player-height="30"
+              :video-id="song"
+              @ready="ready"
+              @playing="playing"
+              :key="song"
+            ></youtube>
+            <button @click="play" :key="song">PLAY</button>
+            <button @click="pause" :key="song">PAUSE</button>
+            <button @click="select" :key="song">SELECT</button>
+          </div>
+        </template>
+      </template>
 
-          <v-col cols="12">
-            <v-autocomplete
-              filled
-              chips
-              color="blue-grey lighten-2"
-              label="Song"
-              item-text="name"
-              item-value="name"
-              multiple
-            >
-            </v-autocomplete>
-          </v-col>
-
-          <v-col cols="12">
-            <v-autocomplete
-              filled
-              chips
-              color="blue-grey lighten-2"
-              label="Song"
-              item-text="name"
-              item-value="name"
-              multiple
-            >
-            </v-autocomplete>
-          </v-col>
+    
         </v-row>
       </v-container>
     </v-form>
@@ -140,37 +144,58 @@
 </template>
 
 <script>
+import PlaylistService from "../PlaylistService";
+import YouTube from "simple-youtube-api";
   export default {
     data () {
-      const srcs = {
-        1: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
-        2: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
-        3: 'https://cdn.vuetifyjs.com/images/lists/3.jpg',
-        4: 'https://cdn.vuetifyjs.com/images/lists/4.jpg',
-        5: 'https://cdn.vuetifyjs.com/images/lists/5.jpg',
-      }
+         
+      // const srcs = {
+      //   1: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
+      //   2: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
+      //   3: 'https://cdn.vuetifyjs.com/images/lists/3.jpg',
+      //   4: 'https://cdn.vuetifyjs.com/images/lists/4.jpg',
+      //   5: 'https://cdn.vuetifyjs.com/images/lists/5.jpg',
+      // }
 
       return {
-        autoUpdate: true,
-        friends: ['Sandra Adams', 'Britta Holt'],
-        isUpdating: false,
-        name: 'Playlist Name',
-        people: [
-          { header: 'Group 1' },
-          { name: 'Sandra Adams', group: 'Group 1', avatar: srcs[1] },
-          { name: 'Ali Connors', group: 'Group 1', avatar: srcs[2] },
-          { name: 'Trevor Hansen', group: 'Group 1', avatar: srcs[3] },
-          { name: 'Tucker Smith', group: 'Group 1', avatar: srcs[2] },
-          { divider: true },
-          { header: 'Group 2' },
-          { name: 'Britta Holt', group: 'Group 2', avatar: srcs[4] },
-          { name: 'Jane Smith ', group: 'Group 2', avatar: srcs[5] },
-          { name: 'John Smith', group: 'Group 2', avatar: srcs[1] },
-          { name: 'Sandra Williams', group: 'Group 2', avatar: srcs[3] },
-        ],
-        title: 'Description',
+        //8. copied all properties from data object
+      playlists: [],
+      error: "",
+      text: "",
+      videoId: "",
+      songName: "",
+      songList: [],
+      randomPlaylistID: 0,
+      show: true,
+      playlistName: ""
+        // autoUpdate: true,
+        // friends: ['Sandra Adams', 'Britta Holt'],
+        // isUpdating: false,
+        // name: 'Playlist Name',
+        // people: [
+        //   // { header: 'Group 1' },
+        //   { name: 'Sandra Adams', group: 'Group 1', avatar: srcs[1] },
+        //   { name: 'Ali Connors', group: 'Group 1', avatar: srcs[2] },
+        //   { name: 'Trevor Hansen', group: 'Group 1', avatar: srcs[3] },
+        //   { name: 'Tucker Smith', group: 'Group 1', avatar: srcs[2] },
+        //   { divider: true },
+        //   // { header: 'Group 2' },
+        //   { name: 'Britta Holt', group: 'Group 2', avatar: srcs[4] },
+        //   { name: 'Jane Smith ', group: 'Group 2', avatar: srcs[5] },
+        //   { name: 'John Smith', group: 'Group 2', avatar: srcs[1] },
+        //   { name: 'Sandra Williams', group: 'Group 2', avatar: srcs[3] },
+        // ],
+        // title: 'Description',
       }
     },
+    // 7. Imported created lifecycle hook to load playlists
+     async created() {
+    try {
+      this.playlists = await PlaylistService.getPlaylist();
+    } catch (err) {
+      this.error = err.message;
+    }
+  },
 
     watch: {
       isUpdating (val) {
@@ -181,10 +206,65 @@
     },
 
     methods: {
+      //9. added ready and delete methods
+       ready(event) {
+      this.player = event.target;
+    },
+    deleteSong() {
+      this.songList.pop();
+    },
       remove (item) {
         const index = this.friends.indexOf(item.name)
         if (index >= 0) this.friends.splice(index, 1)
       },
+      //2. Import load videos fucntion to get video from youtube
+        loadVideos() {
+      // console.log("pressed");
+      const youtube = new YouTube("AIzaSyDbn27OnUSxSwmqchM9ayuYj0MPqPu40TA");
+      youtube
+        .searchVideos(this.songName + "lyrics", 4)
+        .then(results => {
+          // console.log(results[0].id);
+          // console.log(`The video's title is ${results[0].title}`);
+          this.songName = results[0].title;
+          this.videoId = results[0].id;
+        })
+        .catch(error => {
+          throw(error);
+          // console.log(error);
+        });
+    },
+    //4. Imported add song method which adds song to array
+     addSong() {
+      if (this.videoId && !this.songList.includes(this.videoId)) {
+        this.songList.push(this.videoId);
+      }
+      this.songName = "";
+      this.show = true;
+    },
+    //6. import methods for button functionality
+     select() {
+      this.videoId;
+    },
+    pause() {
+      this.player.pauseVideo();
+    },
+    play() {
+      this.player.playVideo();
+    },
+    //11. Added create and delete playlist methods which interact with backend
+      async createPlaylist() {
+      await PlaylistService.insertPlaylist(this.songList, this.playlistName);
+      this.playlists = await PlaylistService.getPlaylist();
+      this.show = false;
+      this.songList = [];
+      this.playlistName = "";
+    },
+
+    async deletePlaylist(id) {
+      await PlaylistService.deletePlaylist(id);
+      this.playlists = await PlaylistService.getPlaylist();
+    }
     },
   }
 </script>
