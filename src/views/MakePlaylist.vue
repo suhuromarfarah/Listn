@@ -55,7 +55,7 @@
         >
           <v-col class="text-center">
             <h3 class="headline black--text">{{ playlistName }}</h3>
-            <span class="black--text text--lighten-1">{{ title }}</span>
+            <span class="black--text text--lighten-1">{{ playlistDescription }}</span>
 
             <template>
               <div class="text-center">
@@ -93,7 +93,7 @@
             md="6"
           >
             <v-text-field
-              v-model="title"
+              v-model="playlistDescription"
               :disabled="isUpdating"
               filled
               color="blue-grey lighten-2"
@@ -176,7 +176,7 @@ import YouTube from "simple-youtube-api";
       randomPlaylistID: 0,
       show: true,
       playlistName: "",
-      title: ""
+      playlistDescription: ""
         // autoUpdate: true,
         // friends: ['Sandra Adams', 'Britta Holt'],
         // isUpdating: false,
@@ -235,7 +235,7 @@ import YouTube from "simple-youtube-api";
         .then(results => {
           // console.log(results[0].id);
           // console.log(`The video's title is ${results[0].title}`);
-          this.songName = results[0].title;
+          this.songName = results[0].playlistDescription;
           this.videoId = results[0].id;
         })
         .catch(error => {
@@ -263,11 +263,13 @@ import YouTube from "simple-youtube-api";
     },
     //11. Added create and delete playlist methods which interact with backend
       async createPlaylist() {
-      await PlaylistService.insertPlaylist(this.songList, this.playlistName);
+      await PlaylistService.insertPlaylist(this.songList, this.playlistName),this.playlistDescription;
       this.playlists = await PlaylistService.getPlaylist();
       this.show = false;
       this.songList = [];
-      this.playlistName = "";
+      this.playlistName = ""
+      this.play = ""
+;
     },
 
     async deletePlaylist(id) {
