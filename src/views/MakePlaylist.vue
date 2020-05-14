@@ -58,7 +58,7 @@
             <template>
               <div class="text-center">
                 <v-btn class="ma-2" tile color="black" dark>Save</v-btn>
-                <v-btn class="ma-2" tile color="black" dark>Share</v-btn>
+                <v-btn class="ma-2" tile color="black" dark :to="{name: 'playlist'}" >Share</v-btn>
               </div>
             </template>
 
