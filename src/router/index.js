@@ -1,7 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Dashboard from "../views/Dashboard.vue";
-import Login from "../views/Login.vue";
+import Login from "../views/Login.vue"; 
+// import Navbar from "src/components/Navbar.vue"; 
 
 
 Vue.use(VueRouter);
@@ -23,6 +24,12 @@ const routes = [
     // This is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "MakePlaylist" */ "../views/MakePlaylist.vue")
+  },
+  {
+    path: "/Playlist",
+    name: "playlist",
+    component: () =>
+      import(/* webpackChunkName: "MakePlaylist" */ "../views/Playlist.vue")
   }
 ];
 
