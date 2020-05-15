@@ -23,6 +23,7 @@ app.post('/',async(req,res)=>{
     const playlists = await loadPlaylist();
     await playlists.insertOne({
         playlistName: req.body.playlistName,
+        playlistDescription: req.body.playlistDescription,
         songs: req.body.songs,
       
         
@@ -31,9 +32,9 @@ app.post('/',async(req,res)=>{
     res.status(201).send()
 })
 //Delete Playlist
-app.delete('/:id', async(req,res)=>{
+app.delete('/', async(req,res)=>{
     const playlists = await loadPlaylist();
-    await playlists.deleteMany({_id: new mongodb.ObjectID(req.params.id)});
+    await playlists.remove();
     res.status(200).send();
 })
 //Edit Playlist
