@@ -115,12 +115,13 @@
         <template v-if="show">
           <div :key="index" class="song-container">
             <v-list>
-              <p>{{song.name}}</p>
-               <button @click="play" :key="song">PLAY</button>
-              <button @click="pause" :key="song">PAUSE</button>
+              <p @click="change(song.id)">{{song.name}}</p>
+               <button @click="play" :key="song.id">PLAY</button>
+              <button @click="pause" :key="song.id">PAUSE</button>
             <youtube
-              player-width="0"
-              player-height="0"
+              player-width="30"
+              player-height="30"
+             :player-vars="{ autoplay: 0}"
               :video-id="song.id"
               @ready="ready"
               @playing="playing"
@@ -211,12 +212,10 @@ import YouTube from "simple-youtube-api";
         loadVideos() {
       // console.log("pressed");
       
-      const youtube = new YouTube("AIzaSyDbn27OnUSxSwmqchM9ayuYj0MPqPu40TA");
+      const youtube = new YouTube('AIzaSyDE30mc6o10LSEGniZ7DKvOWV84hKa-u00');
       youtube
         .searchVideos(this.songName + "lyrics", 4)
         .then(results => {
-          // console.log(results[0].id);
-          // console.log(`The video's title is ${results[0].title}`);
           this.songName = results[0].title;
           this.videoId = results[0].id;
         })
@@ -234,8 +233,9 @@ import YouTube from "simple-youtube-api";
       this.show = true;
     },
     //6. import methods for button functionality
-    select() {
-      this.videoId;
+    change(song) {
+      alert(song)
+      this.videoId = song;
     },
     pause(e) {
       e.preventDefault()
