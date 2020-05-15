@@ -115,39 +115,44 @@
             >
             
             </v-text-field>
-            
-            <!-- 1. Added search button that runs load videos function-->
-            <template>
-              <div class="text-center">
-            <v-btn class="ma-2" @click="loadVideos" tile color="black" dark>Search</v-btn>
-    
-            <!-- 3. Added add and delete buttons that call add and delete song functions-->
-            <v-btn class="ma-2" @click="addSong" tile color="black" dark>Add to Playlist</v-btn>
-            <v-btn class="ma-2" @click="deleteSong" tile color="black" dark>Delete Song</v-btn>
 
-            </div>
-            </template>
-          </v-col>
-          <!-- 5. import template for youtube video embed-->
-            <template v-for="(song,index) in songList">
+      <!-- 5. import template for youtube video embed-->
+      <template v-for="(song,index) in songList">
         <template v-if="show">
           <div :key="index" class="song-container">
+            <v-list>
             <youtube
-              player-width="30"
-              player-height="30"
+              player-width="10"
+              player-height="10"
               :video-id="song"
               @ready="ready"
               @playing="playing"
               :key="song"
             ></youtube>
+            
+            <v-list-item-title :src="songList" ></v-list-item-title>
+
             <button @click="play" :key="song">PLAY</button>
             <button @click="pause" :key="song">PAUSE</button>
             <button @click="select" :key="song">SELECT</button>
+            </v-list>
           </div>
         </template>
       </template>
+            
+            <!-- 1. Added search button that runs load videos function-->
 
-    
+            <template>
+              <div class="text-center">
+            <v-btn class="ma-2" @click="loadVideos" tile color="black" dark>Search</v-btn>
+            <!-- 3. Added add and delete buttons that call add and delete song functions-->
+            <v-btn class="ma-2" @click="addSong" tile color="black" dark>Add to Playlist</v-btn>
+            <v-btn class="ma-2" @click="deleteSong" tile color="black" dark>Delete Song</v-btn>
+            </div>
+            </template>
+
+          </v-col>
+
         </v-row>
       </v-container>
     </v-form>
@@ -161,15 +166,6 @@ import YouTube from "simple-youtube-api";
   export default {
     name: "MakePlaylist",
     data () {
-         
-      // const srcs = {
-      //   1: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
-      //   2: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
-      //   3: 'https://cdn.vuetifyjs.com/images/lists/3.jpg',
-      //   4: 'https://cdn.vuetifyjs.com/images/lists/4.jpg',
-      //   5: 'https://cdn.vuetifyjs.com/images/lists/5.jpg',
-      // }
-
       return {
         //8. copied all properties from data object
       playlists: [],
@@ -185,7 +181,7 @@ import YouTube from "simple-youtube-api";
       }
     },
     // 7. Imported created lifecycle hook to load playlists
-     async created() {
+    async created() {
     try {
       this.playlists = await PlaylistService.getPlaylist();
     } catch (err) {
@@ -203,7 +199,7 @@ import YouTube from "simple-youtube-api";
 
     methods: {
       //9. added ready and delete methods
-       ready(event) {
+      ready(event) {
       this.player = event.target;
     },
     deleteSong() {
@@ -231,7 +227,7 @@ import YouTube from "simple-youtube-api";
         });
     },
     //4. Imported add song method which adds song to array
-     addSong() {
+    addSong() {
       if (this.videoId && !this.songList.includes(this.videoId)) {
         this.songList.push(this.videoId);
       }
@@ -239,7 +235,7 @@ import YouTube from "simple-youtube-api";
       this.show = true;
     },
     //6. import methods for button functionality
-     select() {
+    select() {
       this.videoId;
     },
     pause() {
