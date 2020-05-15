@@ -129,9 +129,7 @@
               @playing="playing"
               :key="song"
             ></youtube>
-            
-            <v-list-item-title :src="songList" ></v-list-item-title>
-
+            <v-list-item-title :src="song" ></v-list-item-title>
             <button @click="play" :key="song">PLAY</button>
             <button @click="pause" :key="song">PAUSE</button>
             <button @click="select" :key="song">SELECT</button>
