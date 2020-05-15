@@ -116,18 +116,18 @@
           <div :key="index" class="song-container">
             <v-list>
               <p>{{song.name}}</p>
+               <button @click="play" :key="song">PLAY</button>
+              <button @click="pause" :key="song">PAUSE</button>
             <youtube
-              player-width="10"
-              player-height="10"
+              player-width="0"
+              player-height="0"
               :video-id="song.id"
               @ready="ready"
               @playing="playing"
               :key="song"
             ></youtube>
-            <v-list-item-title :src="song" ></v-list-item-title>
-            <button @click="play" :key="song">PLAY</button>
-            <button @click="pause" :key="song">PAUSE</button>
-            <button @click="select" :key="song">SELECT</button>
+            <!-- <v-list-item-title :src="song" ></v-list-item-title> -->
+           <v-btn class="ma-2" @click="deleteSong(index)" tile color="black" dark>Delete Song</v-btn>
             </v-list>
             
           </div>
@@ -141,7 +141,7 @@
             <v-btn class="ma-2" @click="loadVideos" tile color="black" dark>Search</v-btn>
             <!-- 3. Added add and delete buttons that call add and delete song functions-->
             <v-btn class="ma-2" @click="addSong" tile color="black" dark>Add to Playlist</v-btn>
-            <v-btn class="ma-2" @click="deleteSong" tile color="black" dark>Delete Song</v-btn>
+            
                <!-- import create button to call create playlist-->
                 <v-btn class="ma-2" @click="createPlaylist" tile color="black" dark>Create</v-btn>
                 <v-btn class="ma-2" tile color="black" :to="{name: 'playlist'}" dark>Share</v-btn>
@@ -200,8 +200,8 @@ import YouTube from "simple-youtube-api";
       ready(event) {
       this.player = event.target;
     },
-    deleteSong() {
-      this.songList.pop();
+    deleteSong(index) {
+      this.songList.splice(index, 1);
     },
       remove (item) {
         const index = this.friends.indexOf(item.name)
@@ -237,10 +237,12 @@ import YouTube from "simple-youtube-api";
     select() {
       this.videoId;
     },
-    pause() {
+    pause(e) {
+      e.preventDefault()
       this.player.pauseVideo();
     },
-    play() {
+    play(e) {
+       e.preventDefault()
       this.player.playVideo();
     },
     //11. Added create and delete playlist methods which interact with backend

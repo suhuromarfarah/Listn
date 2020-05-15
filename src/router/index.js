@@ -9,6 +9,7 @@ Vue.use(VueRouter);
 
 const routes = [
   {
+  
     path: "/login",
     name: "login",
     component: Login
@@ -34,6 +35,7 @@ const routes = [
 ];
 
 const router = new VueRouter({
+  mode: 'history',
   routes
 });
 

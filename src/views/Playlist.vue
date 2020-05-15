@@ -31,8 +31,8 @@
              <div :key="index" class="song-container">
                <p :key='song.id'>{{song.name}}</p>
             <youtube
-              player-width="30"
-              player-height="30"
+              player-width="0"
+              player-height="0"
               :video-id="song.id"
               @ready="ready"
               @playing="playing"
@@ -40,7 +40,7 @@
             ></youtube>
             <button @click="play" :key="song">PLAY</button>
             <button @click="pause" :key="song">PAUSE</button>
-            <button @click="select" :key="song">SELECT</button>
+           
           </div>
         </template>
      
