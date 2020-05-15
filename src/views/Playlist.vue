@@ -27,11 +27,13 @@
     </v-list-item>
 
    <template v-for="(song,index)  in playlist.songs">
+          
              <div :key="index" class="song-container">
+               <p :key='song.id'>{{song.name}}</p>
             <youtube
               player-width="30"
               player-height="30"
-              :video-id="song"
+              :video-id="song.id"
               @ready="ready"
               @playing="playing"
               :key="index"
