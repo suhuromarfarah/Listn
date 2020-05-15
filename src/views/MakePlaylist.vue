@@ -176,10 +176,10 @@ import YouTube from "simple-youtube-api";
       randomPlaylistID: 0,
       show: true,
       playlistName: "",
-      playlistDescription: ""
+      playlistDescription: "",
         // autoUpdate: true,
         // friends: ['Sandra Adams', 'Britta Holt'],
-        // isUpdating: false,
+        isUpdating: false
         // name: 'Playlist Name',
         // people: [
         //   // { header: 'Group 1' },
@@ -229,13 +229,14 @@ import YouTube from "simple-youtube-api";
       //2. Import load videos fucntion to get video from youtube
         loadVideos() {
       // console.log("pressed");
+      
       const youtube = new YouTube("AIzaSyDbn27OnUSxSwmqchM9ayuYj0MPqPu40TA");
       youtube
         .searchVideos(this.songName + "lyrics", 4)
         .then(results => {
           // console.log(results[0].id);
           // console.log(`The video's title is ${results[0].title}`);
-          this.songName = results[0].playlistDescription;
+          this.songName = results[0].title;
           this.videoId = results[0].id;
         })
         .catch(error => {
@@ -263,17 +264,17 @@ import YouTube from "simple-youtube-api";
     },
     //11. Added create and delete playlist methods which interact with backend
       async createPlaylist() {
-      await PlaylistService.insertPlaylist(this.songList, this.playlistName),this.playlistDescription;
+      await PlaylistService.insertPlaylist(this.songList, this.playlistName,this.playlistDescription);
       this.playlists = await PlaylistService.getPlaylist();
       this.show = false;
       this.songList = [];
-      this.playlistName = ""
-      this.play = ""
-;
+      this.playlistName = "";
+      this.playlistDescription = "";
+
     },
 
-    async deletePlaylist(id) {
-      await PlaylistService.deletePlaylist(id);
+    async deletePlaylist() {
+      await PlaylistService.deletePlaylist();
       this.playlists = await PlaylistService.getPlaylist();
     }
     },
