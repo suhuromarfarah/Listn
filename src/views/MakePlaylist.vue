@@ -12,10 +12,8 @@
         indeterminate
       ></v-progress-linear>
     </template>
-    <v-img
-      height="300"
-      src="https://source.unsplash.com/5gn2soeAc40/1600x900"
-    >
+
+    
       <v-row>
         <v-col
           class="text-right"
@@ -60,9 +58,7 @@
             <template>
               <div class="text-center">
 
-                <!-- import create button to call create playlist-->
-                <v-btn class="ma-2" @click="createPlaylist" tile color="black" dark>Create</v-btn>
-                <v-btn class="ma-2" tile color="black" :to="{name: 'playlist'}" dark>Share</v-btn>
+             
 
               </div>
             </template>
@@ -70,8 +66,6 @@
           </v-col>
         </v-row>
       </v-row>
-    </v-img>
-
     <v-form width="200">
       <v-container>
         <v-row>
@@ -121,10 +115,11 @@
         <template v-if="show">
           <div :key="index" class="song-container">
             <v-list>
+              <p>{{song.name}}</p>
             <youtube
               player-width="10"
               player-height="10"
-              :video-id="song"
+              :video-id="song.id"
               @ready="ready"
               @playing="playing"
               :key="song"
@@ -134,6 +129,7 @@
             <button @click="pause" :key="song">PAUSE</button>
             <button @click="select" :key="song">SELECT</button>
             </v-list>
+            
           </div>
         </template>
       </template>
@@ -146,6 +142,9 @@
             <!-- 3. Added add and delete buttons that call add and delete song functions-->
             <v-btn class="ma-2" @click="addSong" tile color="black" dark>Add to Playlist</v-btn>
             <v-btn class="ma-2" @click="deleteSong" tile color="black" dark>Delete Song</v-btn>
+               <!-- import create button to call create playlist-->
+                <v-btn class="ma-2" @click="createPlaylist" tile color="black" dark>Create</v-btn>
+                <v-btn class="ma-2" tile color="black" :to="{name: 'playlist'}" dark>Share</v-btn>
             </div>
             </template>
 
@@ -229,9 +228,9 @@ import YouTube from "simple-youtube-api";
     //4. Imported add song method which adds song to array
     addSong() {
       if (this.videoId && !this.songList.includes(this.videoId)) {
-        this.songList.push(this.videoId);
+        this.songList.push({'id':this.videoId , 'name':this.songName});
       }
-      this.songName = "";
+       this.songName = "";
       this.show = true;
     },
     //6. import methods for button functionality
