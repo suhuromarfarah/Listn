@@ -6,7 +6,7 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
 
-      <v-btn text color="black" :to="{name: 'dashboard'}">
+      <v-btn exact text color="black" :to="{name: 'dashboard'}">
         Home
       </v-btn>
 
