@@ -24,15 +24,16 @@ class PlaylistService {
     }
 
   //Create playlist on database
-  static insertPlaylist(songs,playlistName) {
+  static insertPlaylist(songs,playlistName,playlistDescription) {
     return axios.post(url, {
       playlistName,
+      playlistDescription,
       songs
     });
   }
 
-  static deletePlaylist(id) {
-    return axios.delete(`${url}${id}`);
+  static deletePlaylist() {
+    return axios.delete();
     
   }
 }
