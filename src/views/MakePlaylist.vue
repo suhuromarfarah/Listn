@@ -115,12 +115,18 @@
             >
             
             </v-text-field>
+            
             <!-- 1. Added search button that runs load videos function-->
+            <template>
+              <div class="text-center">
             <v-btn class="ma-2" @click="loadVideos" tile color="black" dark>Search</v-btn>
-            <hr>
+    
             <!-- 3. Added add and delete buttons that call add and delete song functions-->
             <v-btn class="ma-2" @click="addSong" tile color="black" dark>Add to Playlist</v-btn>
             <v-btn class="ma-2" @click="deleteSong" tile color="black" dark>Delete Song</v-btn>
+
+            </div>
+            </template>
           </v-col>
           <!-- 5. import template for youtube video embed-->
             <template v-for="(song,index) in songList">
@@ -174,26 +180,8 @@ import YouTube from "simple-youtube-api";
       songList: [],
       randomPlaylistID: 0,
       show: true,
-      playlistName: "",
-      title: ""
-        // autoUpdate: true,
-        // friends: ['Sandra Adams', 'Britta Holt'],
-        // isUpdating: false,
-        // name: 'Playlist Name',
-        // people: [
-        //   // { header: 'Group 1' },
-        //   { name: 'Sandra Adams', group: 'Group 1', avatar: srcs[1] },
-        //   { name: 'Ali Connors', group: 'Group 1', avatar: srcs[2] },
-        //   { name: 'Trevor Hansen', group: 'Group 1', avatar: srcs[3] },
-        //   { name: 'Tucker Smith', group: 'Group 1', avatar: srcs[2] },
-        //   { divider: true },
-        //   // { header: 'Group 2' },
-        //   { name: 'Britta Holt', group: 'Group 2', avatar: srcs[4] },
-        //   { name: 'Jane Smith ', group: 'Group 2', avatar: srcs[5] },
-        //   { name: 'John Smith', group: 'Group 2', avatar: srcs[1] },
-        //   { name: 'Sandra Williams', group: 'Group 2', avatar: srcs[3] },
-        // ],
-        // title: 'Description',
+      playlistName: "PlayList Name",
+      title: "Description",
       }
     },
     // 7. Imported created lifecycle hook to load playlists
