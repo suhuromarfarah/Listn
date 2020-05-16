@@ -69,7 +69,9 @@ export default {
   },
   methods: {
     loadVideos() {
+
       const youtube = new YouTube("AIzaSyDSltiKOPVIfCL8wKR_UhSAgkI8YkS5jz4");
+
       youtube
         .searchVideos(this.songName + "lyrics", 4)
         .then(results => {
@@ -92,6 +94,9 @@ export default {
     async deletePlaylist() {
       await PlaylistService.deletePlaylist();
       this.playlists = await PlaylistService.getPlaylist();
+    },
+    change(){
+      
     }
   }
 };
