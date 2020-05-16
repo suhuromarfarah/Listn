@@ -53,7 +53,8 @@
         >
           <v-col class="text-center">
             <h3 class="headline black--text">{{ playlistName }}</h3>
-            <span class="black--text text--lighten-1">{{ playlistDescription }}</span>
+            <h3 class="headline black--text">{{ playlistDescription }}</h3>
+
 
             <template>
               <div class="text-center">
@@ -110,7 +111,6 @@
             
             </v-text-field>
 
-      <!-- 5. import template for youtube video embed-->
       <template v-for="(song,index) in songList">
         <template v-if="show">
           <div :key="index" class="song-container">
@@ -130,7 +130,6 @@
               :key="song"
               class="rounded-card"
             ></youtube>
-            <!-- <v-list-item-title :src="song" ></v-list-item-title> -->
 
             </v-list>
             
@@ -138,15 +137,12 @@
         </template>
       </template>
             
-            <!-- 1. Added search button that runs load videos function-->
-
             <template>
               <div class="text-center">
             <v-btn class="ma-2" @click="loadVideos" tile color="black" dark>Search</v-btn>
             <!-- 3. Added add and delete buttons that call add and delete song functions-->
             <v-btn class="ma-2" @click="addSong" tile color="black" dark>Add to Playlist</v-btn>
             
-               <!-- import create button to call create playlist-->
                 <v-btn class="ma-2" @click="createPlaylist" tile color="black" dark>Create</v-btn>
                 <v-btn class="ma-2" tile color="black" :to="{name: 'playlist'}" dark>Share</v-btn>
             </div>
@@ -168,7 +164,6 @@ import YouTube from "simple-youtube-api";
     name: "MakePlaylist",
     data () {
       return {
-        //8. copied all properties from data object
       playlists: [],
       error: "",
       text: "",
@@ -177,12 +172,11 @@ import YouTube from "simple-youtube-api";
       songList: [],
       randomPlaylistID: 0,
       show: true,
-
       playlistName: "PlayList Name",
-      title: "Description",
+      playlistDescription: "Playlist Description",
+      title: "Description"
       }
     },
-    // 7. Imported created lifecycle hook to load playlists
     async created() {
     try {
       this.playlists = await PlaylistService.getPlaylist();
@@ -200,7 +194,6 @@ import YouTube from "simple-youtube-api";
     },
 
     methods: {
-      //9. added ready and delete methods
       ready(event) {
       this.player = event.target;
     },
@@ -213,8 +206,6 @@ import YouTube from "simple-youtube-api";
       },
       //2. Import load videos fucntion to get video from youtube
         loadVideos() {
-      // console.log("pressed");
-
       const youtube = new YouTube("AIzaSyDSltiKOPVIfCL8wKR_UhSAgkI8YkS5jz4");
 
       youtube
