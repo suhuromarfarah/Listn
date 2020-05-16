@@ -10,8 +10,8 @@
         Home
       </v-btn>
 
-      <v-btn text color="black" :to="{name: 'login'}">
-        Login
+      <v-btn text color="black" :to="{name: 'questions'}">
+        Listen
       </v-btn>
     
       <v-btn text color="black" :to="{name: 'MakePlaylist'}">
