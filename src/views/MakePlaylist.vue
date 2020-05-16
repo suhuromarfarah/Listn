@@ -118,16 +118,18 @@
               <p>{{song.name}}</p>
                <button @click="play" :key="song">PLAY</button>
               <button @click="pause" :key="song">PAUSE</button>
+              <button @click="deleteSong(index)" :key="song">DELETE</button>
             <youtube
-              player-width="0"
-              player-height="0"
+              player-width="20"
+              player-height="20"
               :video-id="song.id"
               @ready="ready"
               @playing="playing"
               :key="song"
+              class="rounded-card"
             ></youtube>
             <!-- <v-list-item-title :src="song" ></v-list-item-title> -->
-           <v-btn class="ma-2" @click="deleteSong(index)" tile color="black" dark>Delete Song</v-btn>
+
             </v-list>
             
           </div>
@@ -211,7 +213,7 @@ import YouTube from "simple-youtube-api";
         loadVideos() {
       // console.log("pressed");
       
-      const youtube = new YouTube("AIzaSyDbn27OnUSxSwmqchM9ayuYj0MPqPu40TA");
+      const youtube = new YouTube("AIzaSyDSltiKOPVIfCL8wKR_UhSAgkI8YkS5jz4");
       youtube
         .searchVideos(this.songName + "lyrics", 4)
         .then(results => {
@@ -263,4 +265,14 @@ import YouTube from "simple-youtube-api";
     },
   }
 </script>
+
+<style scoped>
+.rounded-card{
+    border-radius:50px;
+}
+
+.containers{
+  display: inline;
+}
+</style>
 

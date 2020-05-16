@@ -69,7 +69,7 @@ export default {
   },
   methods: {
     loadVideos() {
-      const youtube = new YouTube("AIzaSyDbn27OnUSxSwmqchM9ayuYj0MPqPu40TA");
+      const youtube = new YouTube("AIzaSyDSltiKOPVIfCL8wKR_UhSAgkI8YkS5jz4");
       youtube
         .searchVideos(this.songName + "lyrics", 4)
         .then(results => {
