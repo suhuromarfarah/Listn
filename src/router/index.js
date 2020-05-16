@@ -1,23 +1,29 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Dashboard from "../views/Dashboard.vue";
-import Login from "../views/Login.vue"; 
+// import Login from "../views/Login.vue"; 
+import Questions from "../views/Questions.vue"; 
 // import Navbar from "src/components/Navbar.vue"; 
 
 
 Vue.use(VueRouter);
 
 const routes = [
-  {
+  // {
   
-    path: "/login",
-    name: "login",
-    component: Login
-  },
+  //   path: "/login",
+  //   name: "login",
+  //   component: Login
+  // },
   {
     path: "/",
     name: "dashboard",
     component: Dashboard
+  },
+  {
+    path: "/Questions",
+    name: "questions",
+    component: Questions
   },
   {
     path: "/MakePlaylist",
