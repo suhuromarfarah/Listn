@@ -111,15 +111,23 @@
         </vs-col>
       </vs-row>
     </vs-card>
+    <div class="col-lg-9 col-md-8">
+      <albumArt />
+    </div>
+    <foot />
   </vs-card>
 </template>
 
 <script>
 import { VueFunnelGraph } from "vue-funnel-graph-js";
+import albumArt from "./albumArt";
+import foot from "./foot";
 export default {
   name: "Performance",
   components: {
-    VueFunnelGraph
+    VueFunnelGraph,
+    albumArt,
+    foot
   },
   data() {
     return {
