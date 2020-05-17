@@ -4,7 +4,9 @@ import router from './router'
 import vuetify from './plugins/vuetify';
 import VueYouTubeEmbed from 'vue-youtube-embed'
 
-Vue.use(VueYouTubeEmbed)
+Vue.use(VueYouTubeEmbed),{
+  global: true
+}
 Vue.config.productionTip = false
 
 new Vue({

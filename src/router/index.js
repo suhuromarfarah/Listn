@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Dashboard from "../views/Dashboard.vue";
-// import Login from "../views/Login.vue"; 
+import Mood from "../views/Mood.vue"; 
 import Questions from "../views/Questions.vue"; 
 // import Navbar from "src/components/Navbar.vue"; 
 
@@ -15,6 +15,10 @@ const routes = [
   //   name: "login",
   //   component: Login
   // },
+  {path:"/Mood",
+    name: 'Mood',
+    component: Mood
+},
   {
     path: "/",
     name: "dashboard",
