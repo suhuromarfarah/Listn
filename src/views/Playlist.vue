@@ -2,44 +2,27 @@
 <template>
 <div>
   <template v-for="playlist in playlists">
-  <v-card :key='playlist' class="mx-10 ma-10" max-width="300" align="center" tile>
+  <v-card :key='playlist' class="mx-10 ma-10" max-width="350" align="center" tile>
    
     <v-card-title :key='playlist' class="justify-center">{{playlist.playlistName}}</v-card-title>
     <v-card-subtitle :key='playlist'>{{playlist.playlistDescription}}</v-card-subtitle>
-    <v-list-item :key='playlist'>
-      <v-list-item-icon class="mx-10">
-        <v-btn icon>
-          <v-icon>mdi-rewind</v-icon>
-        </v-btn>
-      </v-list-item-icon>
-
-      <v-list-item-icon :class="{ 'mx-0': $vuetify.breakpoint.mdAndUp }">
-        <v-btn icon>
-          <v-icon>mdi-pause</v-icon>
-        </v-btn>
-      </v-list-item-icon>
-
-      <v-list-item-icon class="ml-10" :class="{ 'mr-3': $vuetify.breakpoint.mdAndUp }">
-        <v-btn icon>
-          <v-icon>mdi-fast-forward</v-icon>
-        </v-btn>
-      </v-list-item-icon>
-    </v-list-item>
+  
 
    <template v-for="(song,index)  in playlist.songs">
           
              <div :key="index" class="song-container">
-               <p :key='song.id'>{{song.name}}</p>
+             
             <youtube
-              player-width="0"
-              player-height="0"
+              player-width="20"
+              player-height="20"
               :video-id="song.id"
               @ready="ready"
               @playing="playing"
               :key="index"
+              class="rounded-card"
             ></youtube>
-            <button @click="play" :key="song">PLAY</button>
-            <button @click="pause" :key="song">PAUSE</button>
+            <p class="song" :key='song.id'>{{song.name}}</p>
+            
            
           </div>
         </template>
@@ -101,3 +84,45 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.rounded-card{
+    border-radius:50px;
+    border: 2px solid;
+    width:45px;
+    margin: auto;
+    display: inline;
+    
+}
+
+.containers{
+  display: inline;
+  padding:10px;
+}
+
+.song-container{
+  width: 100%;
+  margin: auto;
+  text-align:center;
+  padding:10px;
+  background-color: gray;
+  border: 1px solid black;
+}
+.logo{
+  position:absolute;
+  right:420px;
+  height:35px;
+  z-index: 0;
+  bottom:105px;
+  
+
+}
+.song {
+  display: inline;
+  padding:10px;
+}
+.delete{
+  padding:10px;
+}
+
+</style>

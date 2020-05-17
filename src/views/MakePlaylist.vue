@@ -116,10 +116,9 @@
           <div :key="index" class="song-container">
             <v-list>
 
-              <p>{{song.name}}</p>
-               <button @click="play" :key="song">PLAY</button>
-              <button @click="pause" :key="song">PAUSE</button>
-              <button @click="deleteSong(index)" :key="song">DELETE</button>
+              
+        
+            <!-- <img class='logo' src="../assets/test.png"> -->
             <youtube
               player-width="20"
               player-height="20"
@@ -130,7 +129,8 @@
               :key="song"
               class="rounded-card"
             ></youtube>
-
+            <p class="song">{{song.name}}</p>
+       <button class="delete" @click="deleteSong(index)" :key="song">DELETE</button>
             </v-list>
             
           </div>
@@ -262,10 +262,40 @@ import YouTube from "simple-youtube-api";
 <style scoped>
 .rounded-card{
     border-radius:50px;
+    border: 2px solid;
+    width:45px;
+    margin: auto;
+    display: inline;
+    
 }
 
 .containers{
   display: inline;
+  padding:10px;
 }
+
+.song-container{
+  width: 70%;
+  margin: auto;
+  text-align:center;
+  padding:10px;
+}
+.logo{
+  position:absolute;
+  right:420px;
+  height:35px;
+  z-index: 0;
+  bottom:105px;
+  
+
+}
+.song {
+  display: inline;
+  padding:10px;
+}
+.delete{
+  padding:10px;
+}
+
 </style>
 
