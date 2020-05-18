@@ -1,37 +1,36 @@
 <template>
-  <div id="art">
-    <v-carousel cycle height="400" hide-delimiter-background show-arrows-on-hover>
-      <v-carousel-item v-for="(slide, i) in slides" :key="i">
-        <v-sheet :color="colors[i]" height="100%">
-          <v-row class="fill-height" align="center" justify="center">
-            <div class="display-3">{{ slide }} Slide</div>
-          </v-row>
-        </v-sheet>
-      </v-carousel-item>
-    </v-carousel>
-  </div>
+  <v-carousel cycle :show-arrows="false">
+
+    <v-carousel-item
+     
+      v-for="(item,i) in items"
+      :key="i"
+      :src="item.src"
+    ></v-carousel-item>
+  </v-carousel>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      colors: [
-        "indigo",
-        "warning",
-        "pink darken-2",
-        "red lighten-1",
-        "deep-purple accent-4"
-      ],
-      slides: ["First", "Second", "Third", "Fourth", "Fifth"]
-    };
+  export default {
+    data () {
+      return {
+        items: [
+          {
+            
+            src: 'https://img.discogs.com/tP-GigZ-XZquQ1ig0S3ybx7L7yc=/fit-in/500x500/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-372268-1255068468.jpeg.jpg',
+          },
+          {
+            src: 'https://i.ytimg.com/vi/lXUuiz1aBHs/maxresdefault.jpg',
+          },
+          {
+            src: 'https://upload.wikimedia.org/wikipedia/en/7/7b/David_Bowie_-_Heroes.png',
+          },
+          {
+            src: 'https://upload.wikimedia.org/wikipedia/en/1/16/Justin_Bieber_-_Changes.png',
+          },
+        ],
+      }
+    },
   }
-};
 </script>
 
-<style scoped>
->>> .art {
-  width: 100%;
-  height: 25px;
-}
-</style>
