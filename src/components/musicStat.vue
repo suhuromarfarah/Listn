@@ -1,174 +1,175 @@
 <template>
+
+<div  id="landing-page">
   <vs-card class="card">
-    <div slot="header">
-      <h2>LISTN</h2>
+ <v-data-table
+    :headers="headers"
+    :items="desserts"
+    class="elevation-1"
+  >
+
+    <template v-slot:item.calories="{ item }">
+      <v-chip :color="getColor(item.calories)" dark>{{ item.calories }}</v-chip>
+    </template>
+  </v-data-table>
+
+
+<div class="pie" >
+     <pieChart/>
     </div>
-
-    <vs-card fixedHeight v-if="this.cardContent === 1">
-      <div slot="header">
-        <h2 class="innerCard">LISTN Stats</h2>
-      </div>
-      <div slot="media">
-        <vue-funnel-graph
-          :width="width"
-          :height="height"
-          :labels="labels"
-          :values="values"
-          :colors="colors"
-          :sub-labels="subLabels"
-          :direction="direction"
-          :gradient-direction="gradientDirection"
-          :animated="true"
-          :display-percentage="true"
-        ></vue-funnel-graph>
-        <!-- <VueChartjs/> -->
-      </div>
-      <vs-divider />
-      <vs-row>
-        <vs-col vs-w="1" vs-offset="10">
-          <div class="footer">
-            <vs-button
-              type="line"
-              color="#0bd370"
-              v-if="cardContent > 1"
-              @click="changeContent(-1)"
-            >Previous</vs-button>
-          </div>
-        </vs-col>
-        <vs-col vs-w="1">
-          <div class="footer">
-            <vs-button
-              type="line"
-              color="#0bd370"
-              v-if="cardContent < 3"
-              @click="changeContent(1)"
-            >Next</vs-button>
-          </div>
-        </vs-col>
-      </vs-row>
-    </vs-card>
-
-    <vs-card fixedHeight v-if="this.cardContent === 2">
-      <div slot="header">
-        <h2 class="innerCard">Listn Song Analysis</h2>
-      </div>
-      <div slot="media">
-        <!-- <VueChartjs/> -->
-      </div>
-      <vs-divider />
-      <vs-row>
-        <vs-col vs-w="1" vs-offset="10">
-          <div class="footer">
-            <vs-button
-              type="line"
-              color="#0bd370"
-              v-if="cardContent > 1"
-              @click="changeContent(-1)"
-            >Previous</vs-button>
-          </div>
-        </vs-col>
-        <vs-col vs-w="1">
-          <div class="footer">
-            <vs-button
-              type="line"
-              color="#0bd370"
-              v-if="cardContent < 3"
-              @click="changeContent(1)"
-            >Next</vs-button>
-          </div>
-        </vs-col>
-      </vs-row>
-    </vs-card>
-
-    <vs-card fixedHeight v-if="this.cardContent === 3">
-      <div slot="header">
-        <h2 class="innerCard">Static Volume Analysis</h2>
-      </div>
-      <div slot="media">
-        <!-- <VueChartjs/> -->
-      </div>
-      <vs-divider />
-      <vs-row>
-        <vs-col vs-w="1" vs-offset="10">
-          <div class="footer">
-            <vs-button
-              type="line"
-              color="#0bd370"
-              v-if="cardContent > 1"
-              @click="changeContent(-1)"
-            >Previous</vs-button>
-          </div>
-        </vs-col>
-        <vs-col vs-w="1">
-          <div class="footer">
-            <vs-button
-              type="line"
-              color="#0bd370"
-              v-if="cardContent < 3"
-              @click="changeContent(1)"
-            >Next</vs-button>
-          </div>
-        </vs-col>
-      </vs-row>
-    </vs-card>
-    <div class="col-lg-9 col-md-8">
+    <div class="bowie" style="maxWidth: 100%">
       <albumArt />
     </div>
+    <div class="zowie" style="maxWidth: 100%">
+      <albumArt />
+    </div>
+<div class="feet" >
     <foot />
+ </div>
   </vs-card>
+</div>
 </template>
 
 <script>
-import { VueFunnelGraph } from "vue-funnel-graph-js";
 import albumArt from "./albumArt";
+import pieChart from "./pieChart.vue";
+
 import foot from "./foot";
+
 export default {
   name: "Performance",
   components: {
-    VueFunnelGraph,
     albumArt,
+    pieChart,
     foot
   },
   data() {
     return {
-      cardContent: 1,
-      labels: ["Music", "Music", "Music"],
-      subLabels: [">60 Paper Bag", "<60 Gooba", "<30 Heroes"],
-      values: [
-        [356, 512 - 356, 0], // Segments of "Impressions" from top to bottom
-        [158, 71, 10], // Segments of "Add To Cart"
-        [6, 2, 13] // Segments of "Buy"
-      ],
-      colors: [
-        ["#FFB178", "#FF3C8E"], // color set for "Impressions" segment
-        ["#A0BBFF", "#EC77FF"], // color set for "Add To Cart" segment
-        ["#A0F9FF", "#7795FF"] // color set for "Buy" segment
-      ],
-      direction: "horizontal",
-      gradientDirection: "horizontal",
-      height: 300,
-      width: 800
+      headers: [
+          {
+            text: 'Top Songs',
+            align: 'start',
+            sortable: false,
+            value: 'name',
+          },
+          { text: 'Times Played', value: 'calories' },
+          { text: 'Total Hours Listened', value: 'fat' },
+       
+        ],
+        desserts: [
+          {
+            name: 'Paper Bag',
+            calories: 159,
+            fat: 6.0,
+            carbs: 24,
+            protein: 4.0,
+            iron: '1%',
+          },
+          {
+            name: 'Gooba',
+            calories: 237,
+            fat: 9.0,
+            carbs: 37,
+            protein: 4.3,
+            iron: '1%',
+          },
+          {
+            name: 'Baby',
+            calories: 262,
+            fat: 16.0,
+            carbs: 23,
+            protein: 6.0,
+            iron: '7%',
+          },
+          {
+            name: 'Gooda',
+            calories: 305,
+            fat: 3.7,
+            carbs: 67,
+            protein: 4.3,
+            iron: '8%',
+          },
+          {
+            name: 'Goomba',
+            calories: 356,
+            fat: 16.0,
+            carbs: 49,
+            protein: 3.9,
+            iron: '16%',
+          },
+          {
+            name: 'Gooda',
+            calories: 375,
+            fat: 0.0,
+            carbs: 94,
+            protein: 0.0,
+            iron: '0%',
+          },
+          
+        ],
     };
   },
   methods: {
-    changeContent(arg) {
-      this.cardContent += arg;
-    }
-  }
+   getColor (calories) {
+        if (calories > 400) return 'red'
+        else if (calories > 200) return 'orange'
+        else return 'green'
+      },
+    },
+  
 };
 </script>
 
-<style scoped>
-p {
-  text-align: left;
+<style >
+   #landing-page {
+     /* background-color: burlywood; */
+    background-image: url('../docs/guitar.jpg');
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+/* background-color: burlywood */
+  }
+.elevation-1 {
+    /* background-color:transparent !important; */
+    background-image: url('../docs/music.jpg');
+
+       color: balck !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+   font: size 343oem !important;
+
 }
-.card {
-  background-color: #0917d9;
+.bowie{
+
+width: 500px !important;
+left:-1px  !important;
+    position: relative ;
+top: -400px !important;
+
 }
-.innerCard {
-  color: #fc1d6d;
+.feet{
+    position: relative;
+
+   top: -700px  !important;
 }
-.footer {
-  padding-right: 15px;
+
+.pie {
+    left:300px  !important;
+    position: relative;
+    color:red !important;
+top: -1px !important;
+
 }
+
+
+.zowie{
+
+width: 500px !important;
+left:500px  !important;
+    position: relative ;
+top: -900px !important;
+
+}
+
 </style>
