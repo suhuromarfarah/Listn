@@ -18,6 +18,10 @@
         Make a playlist
       </v-btn>
 
+       <v-btn text color="black" :to="{name: 'Mood'}">
+        Feeling Moody?
+      </v-btn>
+
 
     </v-app-bar>
   </nav>
