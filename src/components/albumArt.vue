@@ -17,16 +17,16 @@
         items: [
           {
             
-            src: 'https://img.discogs.com/tP-GigZ-XZquQ1ig0S3ybx7L7yc=/fit-in/500x500/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-372268-1255068468.jpeg.jpg',
+            src: 'https://www.wallpaperflare.com/static/727/716/934/pink-floyd-triangle-space-planet-wallpaper.jpg',
           },
           {
-            src: 'https://i.ytimg.com/vi/lXUuiz1aBHs/maxresdefault.jpg',
+            src: 'https://cdn.wallpaperhi.com/1920x1080/20180611/5b1df3d479eac.jpg',
           },
           {
-            src: 'https://upload.wikimedia.org/wikipedia/en/7/7b/David_Bowie_-_Heroes.png',
+            src: 'https://s3.amazonaws.com/rapgenius/659457206512.jpg',
           },
           {
-            src: 'https://upload.wikimedia.org/wikipedia/en/1/16/Justin_Bieber_-_Changes.png',
+            src: 'https://cdn.vox-cdn.com/thumbor/nE5ajkN4q4Xt2uidE1nwHZrgmis=/0x218:658x657/1200x800/filters:focal(0x218:658x657)/cdn.vox-cdn.com/uploads/chorus_image/image/46718638/c2ce1807.0.0.jpg',
           },
         ],
       }

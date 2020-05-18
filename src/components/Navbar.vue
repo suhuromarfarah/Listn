@@ -23,6 +23,10 @@
       </v-btn>
 
 
+       <v-btn text color="black" :to="{name: 'musicStat'}">
+        Stats
+      </v-btn>
+
     </v-app-bar>
   </nav>
 </template>
