@@ -1,8 +1,9 @@
 <template>
   <div class="hello">
-    <p>
+    <div class="selection">
+    <h3>
       Select your mood. Listn will pick a song for you!
-    </p>
+    </h3>
     <!--<model-select :options="options"
                     v-model="item"
                     placeholder="select item"
@@ -25,10 +26,15 @@
           <span v-if="this.curMood.value == 'workout' | this.curMood.value == 'working' | this.curMood.value == 'whatever'">like </span>{{  this.curMood.value  }}
         </span>  
       </h2>
-      <h3> Listn suggests {{  this.videoName  }}. </h3>
+
+      </div>
+      </div>
+      
+      <h3> Listn suggests  <span style='font-weight:900;color:#43D8C9'> {{  this.videoName  }}. </span>   </h3>
+       
 
       <youtube :video-id="videoId" :player-vars=" {  autoplay: 1  } " @ready="ready" @playing="playing"></youtube>
-    </div>
+    
 
   </div>
 </template>
@@ -215,5 +221,21 @@ li {
 }
 a {
   color: #42b983;
+}
+.hello{
+  border: solid 1px black;
+  text-align:center;
+  background-color: gray;
+  
+ 
+}
+.selection{
+  border: solid 1px black;
+  width: 50%;
+  text-align: center;
+  margin:auto;
+  border-radius: 10%;
+  background-color: lightgray;
+   margin-top:10%;
 }
 </style>
