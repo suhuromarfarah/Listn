@@ -1,73 +1,24 @@
-<template>
+<template >
   <v-card
-    color="grey darken-1"
+    color="grey"
     dark
     :loading="isUpdating"
+    class="card"
   >
-    <template v-slot:progress>
-      <v-progress-linear
-        absolute
-        color="green lighten-3"
-        height="4"
-        indeterminate
-      ></v-progress-linear>
-    </template>
+  <v-container class="size">
+    <v-row
+      class="pa-4"
+      align="center"
+      justify="center"
+    >
+      <v-col class="text-center">
+        <h3 class="headline black--text">{{ playlistName }}</h3>
+        <h3 class="headline black--text">{{ playlistDescription }}</h3>
 
-    
-      <v-row>
-        <v-col
-          class="text-right"
-          cols="12"
-        >
-          <v-menu
-            bottom
-            left
-            transition="slide-y-transition"
-          >
-            <template v-slot:activator="{ on }">
-              <v-btn
-                icon
-                v-on="on"
-              >
-                <v-icon>mdi-dots-vertical</v-icon>
-              </v-btn>
-            </template>
-
-            <v-list>
-              <v-list-item @click="isUpdating = true">
-                <v-list-item-action>
-                  <v-icon>mdi-settings</v-icon>
-                </v-list-item-action>
-                <v-list-item-content>
-                  <v-list-item-title>Update</v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
-            </v-list>
-
-          </v-menu>
-        </v-col>
-        <v-row
-          class="pa-4"
-          align="center"
-          justify="center"
-        >
-          <v-col class="text-center">
-            <h3 class="headline black--text">{{ playlistName }}</h3>
-            <h3 class="headline black--text">{{ playlistDescription }}</h3>
+      </v-col>
+    </v-row>
 
 
-            <template>
-              <div class="text-center">
-
-             
-
-              </div>
-            </template>
-
-          </v-col>
-        </v-row>
-      </v-row>
-    <v-form width="200">
       <v-container>
         <v-row>
           <v-col
@@ -78,7 +29,6 @@
               v-model="playlistName"
               :disabled="isUpdating"
               filled
-              color="dark-grey lighten-2"
               label="Enter playlist name"
             ></v-text-field>
             
@@ -91,7 +41,6 @@
               v-model="playlistDescription"
               :disabled="isUpdating"
               filled
-              color="blue-grey lighten-2"
               label="Enter playlist description"
             ></v-text-field>
           </v-col>
@@ -101,7 +50,6 @@
             <v-text-field 
               filled
               chips
-              color="blue-grey lighten-2"
               label="Find a song"
               item-text="songName"
               item-value="songName"
@@ -144,7 +92,6 @@
             <v-btn class="ma-2" @click="addSong" tile color="black" dark>Add to Playlist</v-btn>
             
                 <v-btn class="ma-2" @click="createPlaylist" tile color="black" dark>Create</v-btn>
-                <v-btn class="ma-2" tile color="black" :to="{name: 'playlist'}" dark>Share</v-btn>
             </div>
             </template>
 
@@ -152,8 +99,7 @@
 
         </v-row>
       </v-container>
-    </v-form>
-
+  </v-container>
   </v-card>
 </template>
 
@@ -295,6 +241,20 @@ import YouTube from "simple-youtube-api";
 }
 .delete{
   padding:10px;
+}
+
+.card{
+  height: 700px;
+  justify-items: center;
+}
+
+.size{
+  width: 700px;
+  padding-top: 70px;
+}
+
+.color{
+  color: "black"
 }
 
 </style>
