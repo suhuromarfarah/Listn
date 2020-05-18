@@ -50,6 +50,7 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "MakePlaylist" */ "../components/musicStat.vue")
   }
+  
 ];
 
 const router = new VueRouter({

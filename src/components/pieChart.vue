@@ -11,20 +11,20 @@ export default {
       .getContext("2d")
       .createLinearGradient(0, 0, 0, 450);
 
-    this.gradient.addColorStop(0, "rgba(245, 232,55, 1)");
-    this.gradient.addColorStop(0.5, "rgba(245, 232,55, 1)");
-    this.gradient.addColorStop(1, "rgba(255, 0, 0, 0)");
+    this.gradient.addColorStop(1, "rgba(255, 44, 44, 0.9)");
+    this.gradient.addColorStop(1, "rgba(255, 0, 0, 0.25)");
+    this.gradient.addColorStop(1, "rgba(246, 185, 255, 0.9)");
 
-    this.gradient2.addColorStop(0, "rgba(245, 232,55, 1)");
-    this.gradient2.addColorStop(0.5, "rgba(243, 77, 88, 1)");
-    this.gradient2.addColorStop(1, "rgba(0, 231, 255, 0)");
+    this.gradient2.addColorStop(1, "rgba(246, 185, 255, 0.9)");
+    this.gradient2.addColorStop(1, "rgba(246, 185, 44, 0.9)");
+    this.gradient2.addColorStop(1, "rgba(246, 185, 44, 0.9)");
     this.renderChart(
       {
-        labels: ["Happy", "Sad", "Angry"],
+        labels: ["😁", " 😢", "🥰", "😌", "🥳"],
         datasets: [
           {
-            backgroundColor: [this.gradient, this.gradient2, "#00D8FF"],
-            data: [40, 20, 10]
+            backgroundColor: [this.gradient, this.gradient2, "#00D8FF","#DAA520","#000080"],
+            data: [40, 20, 25,10,15]
           }
         ]
       },
@@ -33,3 +33,5 @@ export default {
   }
 };
 </script>
+
+

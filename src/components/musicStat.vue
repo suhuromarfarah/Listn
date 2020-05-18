@@ -1,6 +1,20 @@
 <template>
 
 <div  id="landing-page">
+<!-- <div class = "words">
+<h3> Listn Stats</h3>
+</div> -->
+
+<div class="img">
+    <img src="../docs/stats.png">
+  </div>
+
+<div class="imagetwo">
+    <img src="../docs/mood.png">
+  </div>
+<div class="pie" >
+     <pieChart/>
+    </div>
   <vs-card class="card">
  <v-data-table
     :headers="headers"
@@ -14,34 +28,25 @@
   </v-data-table>
 
 
-<div class="pie" >
-     <pieChart/>
-    </div>
-    <div class="bowie" style="maxWidth: 100%">
+
+    <!-- <div class="bowie" style="maxWidth: 100%">
       <albumArt />
-    </div>
-    <div class="zowie" style="maxWidth: 100%">
-      <albumArt />
-    </div>
-<div class="feet" >
-    <foot />
- </div>
+    </div> -->
+    
+
   </vs-card>
 </div>
 </template>
 
 <script>
-import albumArt from "./albumArt";
+// import albumArt from "./albumArt";
 import pieChart from "./pieChart.vue";
-
-import foot from "./foot";
 
 export default {
   name: "Performance",
   components: {
-    albumArt,
-    pieChart,
-    foot
+    // albumArt,
+    pieChart
   },
   data() {
     return {
@@ -59,60 +64,61 @@ export default {
         desserts: [
           {
             name: 'Paper Bag',
-            calories: 159,
+            calories: 100,
             fat: 6.0,
-            carbs: 24,
-            protein: 4.0,
-            iron: '1%',
+            
           },
           {
             name: 'Gooba',
-            calories: 237,
+            calories: 50,
             fat: 9.0,
-            carbs: 37,
-            protein: 4.3,
-            iron: '1%',
+            
           },
           {
             name: 'Baby',
-            calories: 262,
+            calories: 45,
             fat: 16.0,
-            carbs: 23,
-            protein: 6.0,
-            iron: '7%',
+            
           },
           {
-            name: 'Gooda',
-            calories: 305,
+            name: 'Party for one',
+            calories: 20,
             fat: 3.7,
-            carbs: 67,
-            protein: 4.3,
-            iron: '8%',
+           
           },
           {
-            name: 'Goomba',
-            calories: 356,
+            name: 'Heroes',
+            calories: 10,
             fat: 16.0,
-            carbs: 49,
-            protein: 3.9,
-            iron: '16%',
+            
           },
           {
-            name: 'Gooda',
-            calories: 375,
+            name: 'Life on mars',
+            calories: 47,
             fat: 0.0,
-            carbs: 94,
-            protein: 0.0,
-            iron: '0%',
+           
           },
+   {
+            name: 'Bohn',
+            calories: 56,
+            fat: 3.7,
+        
+          },
+          {
+            name: 'Garn',
+            calories: 77,
+            fat: 16.0,
+           
+          },
+         
           
         ],
     };
   },
   methods: {
    getColor (calories) {
-        if (calories > 400) return 'red'
-        else if (calories > 200) return 'orange'
+        if (calories > 80) return 'red'
+        else if (calories > 50) return 'blue'
         else return 'green'
       },
     },
@@ -122,8 +128,8 @@ export default {
 
 <style >
    #landing-page {
-     /* background-color: burlywood; */
-    background-image: url('../docs/guitar.jpg');
+     /* background-color: silver; */
+    background-image: url('../docs/cool.png');
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
@@ -132,21 +138,23 @@ export default {
 /* background-color: burlywood */
   }
 .elevation-1 {
-    /* background-color:transparent !important; */
-    background-image: url('../docs/music.jpg');
+    background-color: #a1c4fd !important;
+    /* background-image: url('../docs/music.jpg'); */
 
-       color: balck !important;
+       color: black !important;
   font-family: Arial, Helvetica, sans-serif !important;
    font: size 343oem !important;
+  position: relative;
+top: -520px;
+left:1200px  !important;
 
+width: 500px;
 }
 .bowie{
-
-width: 500px !important;
-left:-1px  !important;
-    position: relative ;
-top: -400px !important;
-
+width: 5000px !important;
+/* left:  !important; */
+top: 700px !important;
+position: absolute;
 }
 .feet{
     position: relative;
@@ -155,21 +163,28 @@ top: -400px !important;
 }
 
 .pie {
-    left:300px  !important;
+    left:-320px  !important;
     position: relative;
     color:red !important;
-top: -1px !important;
+top: -100px !important;
 
 }
 
-
-.zowie{
-
-width: 500px !important;
-left:500px  !important;
-    position: relative ;
-top: -900px !important;
-
+.name{
+/* font-family: ui-rounded;  */
+color: white !important;
 }
+.img{
+  left: 1300px;
+ top: 10px;
 
+position: relative;
+}
+.imagetwo{
+  left: 520px;
+ top: -130px;
+position: relative;
+}
 </style>
+
+
