@@ -22,7 +22,7 @@
     </ul>
     <div>
       <h2> You're feeling 
-        <span style='font-weight:900;color:#43D8C9'>
+        <span style='font-weight:900;color:red'>
           <span v-if="this.curMood.value == 'workout' | this.curMood.value == 'working' | this.curMood.value == 'whatever'">like </span>{{  this.curMood.value  }}
         </span>  
       </h2>
@@ -30,7 +30,7 @@
       </div>
       </div>
       
-      <h3> Listn suggests  <span style='font-weight:900;color:#43D8C9'> {{  this.videoName  }}. </span>   </h3>
+      <h3> Listn suggests  <span style='font-weight:900;color:red'> {{  this.videoName  }}. </span>   </h3>
        
 
       <youtube :video-id="videoId" :player-vars=" {  autoplay: 1  } " @ready="ready" @playing="playing"></youtube>
@@ -226,12 +226,14 @@ a {
   border: solid 1px black;
   text-align:center;
   background-color: gray;
+  /* background-image: "src/docs/guitar.jpg"; */
+  height:1000px;
   
  
 }
 .selection{
   border: solid 1px black;
-  width: 50%;
+  width: 450px;
   text-align: center;
   margin:auto;
   border-radius: 10%;

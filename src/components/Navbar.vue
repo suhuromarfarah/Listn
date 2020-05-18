@@ -10,18 +10,19 @@
         Home
       </v-btn>
 
-      <v-btn text color="black" :to="{name: 'questions'}">
-        Listen
-      </v-btn>
-    
-      <v-btn text color="black" :to="{name: 'MakePlaylist'}">
-        Make a playlist
-      </v-btn>
-
-       <v-btn text color="black" :to="{name: 'Mood'}">
+  <v-btn text color="black" :to="{name: 'Mood'}">
         Feeling Moody?
       </v-btn>
 
+ <v-btn text color="black" :to="{name: 'MakePlaylist'}">
+        Make a playlist
+      </v-btn>
+
+      <v-btn text color="black" :to="{name: 'playlist'}">
+        Listen
+      </v-btn>
+    
+     
 
        <v-btn text color="black" :to="{name: 'musicStat'}">
         Stats

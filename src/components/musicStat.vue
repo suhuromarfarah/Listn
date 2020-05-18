@@ -5,13 +5,7 @@
 <h3> Listn Stats</h3>
 </div> -->
 
-<div class="img">
-    <img src="../docs/stats.png">
-  </div>
 
-<div class="imagetwo">
-    <img src="../docs/mood.png">
-  </div>
 <div class="pie" >
      <pieChart/>
     </div>
@@ -128,8 +122,8 @@ export default {
 
 <style >
    #landing-page {
-     /* background-color: silver; */
-    background-image: url('../docs/cool.png');
+  background-color: grey;
+    /* background-image: url('../docs/cool.png'); */
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
@@ -145,7 +139,7 @@ export default {
   font-family: Arial, Helvetica, sans-serif !important;
    font: size 343oem !important;
   position: relative;
-top: -520px;
+top: -250px;
 left:1200px  !important;
 
 width: 500px;
@@ -166,7 +160,7 @@ position: absolute;
     left:-320px  !important;
     position: relative;
     color:red !important;
-top: -100px !important;
+top: 100px !important;
 
 }
 
@@ -174,17 +168,7 @@ top: -100px !important;
 /* font-family: ui-rounded;  */
 color: white !important;
 }
-.img{
-  left: 1300px;
- top: 10px;
 
-position: relative;
-}
-.imagetwo{
-  left: 520px;
- top: -130px;
-position: relative;
-}
 </style>
 
 

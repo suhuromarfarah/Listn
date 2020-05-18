@@ -1,6 +1,6 @@
 
 <template>
-<div>
+<div class ="background">
   <template v-for="playlist in playlists">
   <v-card :key='playlist' class="mx-10 ma-10" max-width="350" align="center" tile>
    
@@ -86,10 +86,13 @@ export default {
 </script>
 
 <style scoped>
+
+
+
 .rounded-card{
     border-radius:50px;
     border: 2px solid;
-    width:45px;
+    width: 45px;
     margin: auto;
     display: inline;
     
@@ -105,8 +108,9 @@ export default {
   margin: auto;
   text-align:center;
   padding:10px;
-  background-color: gray;
+  background-color: lightgrey;
   border: 1px solid black;
+  
 }
 .logo{
   position:absolute;
@@ -124,5 +128,16 @@ export default {
 .delete{
   padding:10px;
 }
-
+.background{
+  text-align:center;
+  /* background-color:gray; */
+  padding-top: 300px;
+  padding-left: 750px;
+ background-image: url('../docs/guitar.jpg');
+    height: 100vh;
+    background-position: center;
+    
+    background-size: cover;
+    
+}
 </style>

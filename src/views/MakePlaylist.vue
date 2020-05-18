@@ -244,13 +244,14 @@ import YouTube from "simple-youtube-api";
 }
 
 .card{
-  height: 700px;
+  height: 1100px;
   justify-items: center;
+
 }
 
 .size{
   width: 700px;
-  padding-top: 70px;
+  padding-top: 100px;
 }
 
 .color{

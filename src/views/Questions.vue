@@ -166,18 +166,7 @@
           title: 'What is your mood?',
         }
       ],
-      xy: [
-        {
-          color: '#e67300',
-          title: 'What genre of music?',
-        }
-      ],
-      generatedPlaylist: [
-        {
-          color: 'grey',
-          title: 'Playlist Title',
-        }
-      ],
+
       mood: ['Happy', 'Sad', 'Romantic', 'Gloomy', "Calm"],
       genre: ['Hip Hop', 'RnB', 'Pop', 'Country', "Rock"],
     }),

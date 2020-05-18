@@ -2,7 +2,8 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Dashboard from "../views/Dashboard.vue";
 import Mood from "../views/Mood.vue"; 
-import Questions from "../views/Questions.vue"; 
+import Playlist from "../views/Playlist.vue"; 
+import musicStat from "../components/musicStat.vue"; 
 
 
 // import Navbar from "src/components/Navbar.vue"; 
@@ -27,9 +28,9 @@ const routes = [
     component: Dashboard
   },
   {
-    path: "/Questions",
-    name: "questions",
-    component: Questions
+    path: "/Playlist",
+    name: "playlist",
+    component: Playlist
   },
   {
     path: "/MakePlaylist",
@@ -46,9 +47,8 @@ const routes = [
   },
   {
     path: "/musicStat",
-    name: "musicstat",
-    component: () =>
-      import(/* webpackChunkName: "MakePlaylist" */ "../components/musicStat.vue")
+    name: "musicStat",
+    component: musicStat
   }
   
 ];

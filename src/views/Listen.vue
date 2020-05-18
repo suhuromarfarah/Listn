@@ -16,7 +16,6 @@
             class="mt-11 ma-5"
             
           >
-          
             <div class="d-flex flex-no-wrap justify-center">
               <div>
                 <v-card-title
@@ -78,14 +77,7 @@
         justify="center"
       >
 <template>
-  <v-container fluid>
-      <v-select
-        :items="genre"
-        :menu-props="{ top: true, offsetY: true }"
-        label="Label"
-      ></v-select>
 
-  </v-container>
 </template>
       </v-row>
     </v-card-text>
@@ -115,20 +107,7 @@
           title: 'What is your mood?',
         }
       ],
-      xy: [
-        {
-          color: '#e67300',
-          title: 'What genre of music?',
-        }
-      ],
-      generatedPlaylist: [
-        {
-          color: 'grey',
-          title: 'Playlist Title',
-        }
-      ],
       mood: ['Happy', 'Sad', 'Romantic', 'Gloomy', "Calm"],
-      genre: ['Hip Hop', 'RnB', 'Pop', 'Country', "Rock"],
     }),
     computed: {
       likesAllFruit () {
