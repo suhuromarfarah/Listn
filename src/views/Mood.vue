@@ -29,7 +29,9 @@
 
       </div>
       </div>
-      <h3> Listn suggests {{  this.videoName  }}. </h3>
+      
+      <h3> Listn suggests  <span style='font-weight:900;color:#43D8C9'> {{  this.videoName  }}. </span>   </h3>
+       
 
       <youtube :video-id="videoId" :player-vars=" {  autoplay: 1  } " @ready="ready" @playing="playing"></youtube>
     
