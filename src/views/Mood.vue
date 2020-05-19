@@ -1,6 +1,12 @@
 <template>
   <div class="hello">
+    <div class='form'>
     <div class="selection">
+
+<h1> LISTN</h1>
+<div class = " tag">
+<hr/>
+</div>
     <h3>
       Select your mood. Listn will pick a song for you!
     </h3>
@@ -27,14 +33,15 @@
         </span>  
       </h2>
 
+     
       </div>
       </div>
       
-      <h3> Listn suggests  <span style='font-weight:900;color:red'> {{  this.videoName  }}. </span>   </h3>
+      <h2 class = "listn"> Listn suggests  <span style='font-weight:900;color:red'> {{  this.videoName  }}. </span>   </h2>
        
 
-      <youtube :video-id="videoId" :player-vars=" {  autoplay: 1  } " @ready="ready" @playing="playing"></youtube>
-    
+      <youtube  player-height="300" player-width='450' :video-id="videoId" :player-vars=" {  autoplay: 1  } " @ready="ready" @playing="playing"></youtube>
+     </div>
 
   </div>
 </template>
@@ -71,10 +78,8 @@
         {  name: 'Dear old Nicki', videoId : '-NZFsjWHC9I'  },
         {  name: 'Catcher in the Rye', videoId : '4PNNzSNtihI'  },
         {  name: 'Adios Nonino', videoId : 'VTPec8z5vdY'  },
-        {  name: 'Exogenesis: Symphony, Part 3 (Redemption)', videoId : 'tdhlQzFX-PU'  },
         {  name: 'Take me to church', videoId : 'PVjiKRfKpPI'  },
         {  name: 'Adios Nonino', videoId : 'VTPec8z5vdY'  },
-        {  name: 'Exogenesis: Symphony, Part 3 (Redemption)', videoId : 'tdhlQzFX-PU'  },
         {  name: 'No interruption', videoId : '_t431MAUQlQ'  },
       ],
       romantic: [
@@ -181,7 +186,8 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.hello {
+.tag {
+  border-top:1px solid black;
 }
 .emo-item:hover{
   animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
@@ -229,7 +235,10 @@ a {
   /* background-image: "src/docs/guitar.jpg"; */
   height:1000px;
   
- 
+}
+
+.listn{
+  padding-top:30px;
 }
 .selection{
   border: solid 1px black;
@@ -239,5 +248,17 @@ a {
   border-radius: 10%;
   background-color: lightgray;
    margin-top:10%;
+  
 }
+
+.form {
+  background-color:silver;
+  width: 35%;
+  margin: auto;
+  padding: 30px;
+  margin-top:150px;
+  border:2px solid black;
+  border-radius: 10%;
+}
+
 </style>

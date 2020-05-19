@@ -6,19 +6,18 @@
     class="card"
   >
   <v-container class="size">
+    <div class='form'>
     <v-row
       class="pa-4"
       align="center"
       justify="center"
     >
+    
       <v-col class="text-center">
         <h3 class="headline black--text">{{ playlistName }}</h3>
         <h3 class="headline black--text">{{ playlistDescription }}</h3>
-
-      </v-col>
+     </v-col>
     </v-row>
-
-
       <v-container>
         <v-row>
           <v-col
@@ -44,8 +43,6 @@
               label="Enter playlist description"
             ></v-text-field>
           </v-col>
-
-          <!-- Song search field-->
           <v-col cols="12" >
             <v-text-field 
               filled
@@ -56,50 +53,41 @@
               multiple
               v-model="songName"
             >
-            
-            </v-text-field>
-
+             </v-text-field>
       <template v-for="(song,index) in songList">
         <template v-if="show">
           <div :key="index" class="song-container">
             <v-list>
-
-              
-        
-            <!-- <img class='logo' src="../assets/test.png"> -->
             <youtube
               player-width="20"
               player-height="20"
-              
-              :video-id="song.id"
+               :video-id="song.id"
               @ready="ready"
               @playing="playing"
               :key="song"
               class="rounded-card"
             ></youtube>
-            <p class="song">{{song.name}}</p>
+            <p class="song">{{song.name.replace('Lyrics','')}}</p>
        <button class="delete" @click="deleteSong(index)" :key="song">DELETE</button>
             </v-list>
-            
-          </div>
+             </div>
         </template>
       </template>
-            
-            <template>
+              <template>
               <div class="text-center">
             <v-btn class="ma-2" @click="loadVideos" tile color="black" dark>Search</v-btn>
-            <!-- 3. Added add and delete buttons that call add and delete song functions-->
             <v-btn class="ma-2" @click="addSong" tile color="black" dark>Add to Playlist</v-btn>
-            
-                <v-btn class="ma-2" @click="createPlaylist" tile color="black" dark>Create</v-btn>
+            <v-btn class="ma-2" @click="createPlaylist" tile color="black" dark>Create</v-btn>
             </div>
             </template>
-
-          </v-col>
+         </v-col>
+         
 
         </v-row>
       </v-container>
+      </div>
   </v-container>
+   
   </v-card>
 </template>
 
@@ -221,7 +209,7 @@ import YouTube from "simple-youtube-api";
 }
 
 .song-container{
-  width: 70%;
+  width: 90%;
   margin: auto;
   text-align:center;
   padding:10px;
@@ -256,6 +244,17 @@ import YouTube from "simple-youtube-api";
 
 .color{
   color: "black"
+}
+
+
+.form {
+  background-color:silver;
+  width: 100%;
+  margin: auto;
+  padding: 30px;
+  margin-top:50px;
+  border:2px solid black;
+  border-radius: 10%;
 }
 
 </style>

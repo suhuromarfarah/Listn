@@ -1,18 +1,20 @@
 
 <template>
 <div class ="background">
+  <div class='form'>
+ <h1> My Playlist </h1>
+<div class = "line">
+<hr />
+</div>
+ <div class='center'>
   <template v-for="playlist in playlists">
-  <v-card :key='playlist' class="mx-10 ma-10" max-width="350" align="center" tile>
    
+  <v-card :key='playlist' class="mx-10 ma-10" max-width="350" align="center" tile>
     <v-card-title :key='playlist' class="justify-center">{{playlist.playlistName}}</v-card-title>
     <v-card-subtitle :key='playlist'>{{playlist.playlistDescription}}</v-card-subtitle>
-  
-
-   <template v-for="(song,index)  in playlist.songs">
-          
-             <div :key="index" class="song-container">
-             
-            <youtube
+  <template v-for="(song,index)  in playlist.songs">
+          <div :key="index" class="song-container">
+             <youtube
               player-width="20"
               player-height="20"
               :video-id="song.id"
@@ -21,18 +23,17 @@
               :key="index"
               class="rounded-card"
             ></youtube>
-            <p class="song" :key='song.id'>{{song.name}}</p>
-            
-           
-          </div>
+            <p class="song" :key='song.id'>{{song.name.replace('Lyrics','')}}</p>
+            </div>
         </template>
-   <v-btn class="ma-2" @click="share" tile color="black" dark>Share</v-btn>
+        <v-btn class="ma-2" @click="share" tile color="black" dark>Share</v-btn>
+         
+    </v-card>
 
-     
- </v-card>
- 
   </template>
    </div>
+  </div>
+  </div>
 </template>
 
 <script>
@@ -90,7 +91,10 @@ export default {
 
 <style scoped>
 
-
+.center{
+  margin:auto;
+  padding-left:50px;
+}
 
 .rounded-card{
     border-radius:10%;
@@ -142,5 +146,21 @@ export default {
     
     background-size: cover;
     
+}
+
+.line{
+  border-top:1px solid black;
+}
+
+.form {
+  background-color:silver;
+  width: 50%;
+margin:auto;
+  padding: 30px;
+  margin-top:-100px;
+ left: -300px;
+  border:2px solid black;
+  border-radius: 10%;
+  position: relative;
 }
 </style>

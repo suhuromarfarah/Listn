@@ -7,12 +7,14 @@
 
 <div class="pie" >
 <h1> Top Moods</h1>
+<hr class ='line'>
      <pieChart/>
     </div>
 
   <!-- <vs-card class="card"> -->
     <div class="chart">
-<h1> LISTN Music Stats</h1>
+<h1> LISTN Top 10 Songs</h1>
+<hr class ='line'>
  <v-data-table
     :headers="headers"
     :items="desserts"
@@ -72,19 +74,19 @@ export default {
           {
             name: 'Paper Bag',
             calories: 100,
-            fat: 6.0,
+            fat: 1,
             
           },
           {
             name: 'Gooba',
             calories: 50,
-            fat: 9.0,
+            fat: 2,
             
           },
           {
             name: 'Baby',
             calories: 45,
-            fat: 16.0,
+            fat: 1,
             
           },
           {
@@ -96,25 +98,25 @@ export default {
           {
             name: 'Heroes',
             calories: 10,
-            fat: 16.0,
+            fat: 1,
             
           },
           {
             name: 'Life on mars',
             calories: 47,
-            fat: 0.0,
+            fat: 3,
            
           },
    {
             name: 'Skyfall',
             calories: 56,
-            fat: 3.7,
+            fat: 2,
         
           },
           {
             name: 'Hello',
             calories: 77,
-            fat: 16.0,
+            fat: 1,
            
           },
          
@@ -145,43 +147,44 @@ export default {
 /* background-color: burlywood */
   }
 .chart{
-    background-color: #000080!important;
-  height:580px;
+    background-color: grey!important;
+  height:600px;
   width:520px;
   padding:20px;
-  margin-left:1500px;
-  bottom:480px;
+  margin-left:1100px;
+  bottom:500px;
   border: 1px solid black;
  text-align: center;
   position: relative;
   font-family: Arial, Helvetica, sans-serif !important;
   border-radius:10%;
-color:whitesmoke;
+color:black;
 
 }
 
 .elevation-1 {
-    background-color: ghostwhite !important;
+    background-color: lightgray !important;
     /* background-image: url('../docs/music.jpg'); */
-
+   
        color: black !important;
   font-family: Arial, Helvetica, sans-serif !important;
    font: size 343oem !important;
 
 }
-
-
-
+.line{
+  border-top:1px solid black;
+  margin-bottom:10px;
+}
 
 .pie {
     left:-350px  !important;
     position: relative;
-    color:whitesmoke !important;
+    color:black !important;
 top: 100px !important;
-  background-color: #000080 !important;
-  height:580px;
+  background-color: grey !important;
+  height:600px;
   width:520px;
-  margin-left: 600px;
+  margin-left: 850px;
   border: 1px solid black;
  text-align: center;
  border-radius:10%;
@@ -198,8 +201,8 @@ color: white !important;
 }
 .art{
     position: relative;
-margin-left:-300px;
-  bottom:800px;
+margin-left:100px;
+  bottom:465px;
  
 
 }
