@@ -5,31 +5,34 @@
 <h3> Listn Stats</h3>
 </div> -->
 
-
 <div class="pie" >
+<h1> Top Moods</h1>
      <pieChart/>
     </div>
-  <vs-card class="card">
+
+  <!-- <vs-card class="card"> -->
+    <div class="chart">
+<h1> LISTN Music Stats</h1>
  <v-data-table
     :headers="headers"
     :items="desserts"
     class="elevation-1"
   >
 
-    <template v-slot:item.calories="{ item }">
+    <!-- <template v-slot:item.calories="{ item }">
       <v-chip :color="getColor(item.calories)" dark>{{ item.calories }}</v-chip>
-    </template>
+    </template> -->
   </v-data-table>
+  </div>
+ <!-- </vs-card> -->
 
 
+  
 
-    <!-- <div class="bowie" style="maxWidth: 100%">
-      <albumArt />
-    </div> -->
-    
+ 
 
-  </vs-card>
 </div>
+
 </template>
 
 <script>
@@ -93,13 +96,13 @@ export default {
            
           },
    {
-            name: 'Bohn',
+            name: 'Skyfall',
             calories: 56,
             fat: 3.7,
         
           },
           {
-            name: 'Garn',
+            name: 'Hello',
             calories: 77,
             fat: 16.0,
            
@@ -122,52 +125,68 @@ export default {
 
 <style >
    #landing-page {
-  background-color: grey;
-    /* background-image: url('../docs/cool.png'); */
+  /* background-color: grey; */
+    background-image: url('../docs/player.png');
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
+    /* position: relative; */
 /* background-color: burlywood */
   }
+.chart{
+    background-color: grey!important;
+  height:580px;
+  width:520px;
+  padding:20px;
+  margin-left:1000px;
+  bottom:480px;
+  border: 1px solid black;
+ text-align: center;
+  position: relative;
+  font-family: Arial, Helvetica, sans-serif !important;
+  border-radius:10%;
+color:red;
+
+}
+
 .elevation-1 {
-    background-color: #a1c4fd !important;
+    background-color: lightgray !important;
     /* background-image: url('../docs/music.jpg'); */
 
        color: black !important;
   font-family: Arial, Helvetica, sans-serif !important;
    font: size 343oem !important;
-  position: relative;
-top: -250px;
-left:1200px  !important;
 
-width: 500px;
 }
-.bowie{
-width: 5000px !important;
-/* left:  !important; */
-top: 700px !important;
-position: absolute;
-}
-.feet{
-    position: relative;
 
-   top: -700px  !important;
-}
+
+
 
 .pie {
     left:-320px  !important;
     position: relative;
     color:red !important;
 top: 100px !important;
-
+  background-color: grey !important;
+  height:580px;
+  width:520px;
+  margin-left: 600px;
+  border: 1px solid black;
+ text-align: center;
+ border-radius:10%;
+ padding:20px;
 }
+
+
+
+
 
 .name{
 /* font-family: ui-rounded;  */
 color: white !important;
 }
+
 
 </style>
 

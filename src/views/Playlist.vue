@@ -26,8 +26,11 @@
            
           </div>
         </template>
+   <v-btn class="ma-2" @click="share" tile color="black" dark>Share</v-btn>
+
      
  </v-card>
+ 
   </template>
    </div>
 </template>
@@ -90,7 +93,7 @@ export default {
 
 
 .rounded-card{
-    border-radius:50px;
+    border-radius:10%;
     border: 2px solid;
     width: 45px;
     margin: auto;
@@ -106,10 +109,10 @@ export default {
 .song-container{
   width: 100%;
   margin: auto;
-  text-align:center;
   padding:10px;
   background-color: lightgrey;
   border: 1px solid black;
+  text-align:left;
   
 }
 .logo{
