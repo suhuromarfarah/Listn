@@ -34,6 +34,7 @@
         :items="mood"
         :menu-props="{ top: true, offsetY: true }"
         label="Label"
+       v-model="selected"
       ></v-select>
 
   </v-container>
@@ -152,6 +153,7 @@
       </v-row>
     </v-container>
             </v-layout>
+<button v-on:click="getTheSelectedOne(selected)"> Get The Value </button>
     </v-col>
 
 
@@ -185,6 +187,10 @@
     },
 
     methods: {
+getTheSelectedOne (selected) {
+    // then number will be the number
+    alert(selected)
+  },
       toggle () {
         this.$nextTick(() => {
           if (this.likesAllFruit) {
