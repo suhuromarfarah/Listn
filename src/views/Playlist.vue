@@ -141,7 +141,7 @@ export default {
   padding-top: 300px;
   padding-left: 750px;
  background-image: url('../docs/guitar.jpg');
-    height: 100vh;
+    height: 1200px;
     background-position: center;
     
     background-size: cover;

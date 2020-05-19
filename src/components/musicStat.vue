@@ -139,7 +139,7 @@ export default {
    #landing-page {
   /* background-color: grey; */
     background-image: url('../docs/player.png');
-    height: 100vh;
+    height: 1200px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
