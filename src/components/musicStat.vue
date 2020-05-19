@@ -26,10 +26,18 @@
   </div>
  <!-- </vs-card> -->
 
-
-  
-
- 
+<div class = "art">
+<carousel-3d>
+  <slide :index="0">
+    <img src="../docs/artone.jpg" style="width:100%">  </slide>
+  <slide :index="1">
+    <img src="../docs/arttwo.jpg" style="width:100%"> 
+  </slide>
+ <slide :index="2">
+    <img src="../docs/artthree.jpg" style="width:100%">  
+  </slide>
+</carousel-3d>
+ </div>
 
 </div>
 
@@ -38,12 +46,14 @@
 <script>
 // import albumArt from "./albumArt";
 import pieChart from "./pieChart.vue";
-
+import { Carousel3d, Slide } from 'vue-carousel-3d';
 export default {
   name: "Performance",
   components: {
     // albumArt,
-    pieChart
+    pieChart,
+    Carousel3d,
+    Slide
   },
   data() {
     return {
@@ -135,23 +145,23 @@ export default {
 /* background-color: burlywood */
   }
 .chart{
-    background-color: grey!important;
+    background-color: #000080!important;
   height:580px;
   width:520px;
   padding:20px;
-  margin-left:1000px;
+  margin-left:1500px;
   bottom:480px;
   border: 1px solid black;
  text-align: center;
   position: relative;
   font-family: Arial, Helvetica, sans-serif !important;
   border-radius:10%;
-color:red;
+color:whitesmoke;
 
 }
 
 .elevation-1 {
-    background-color: lightgray !important;
+    background-color: ghostwhite !important;
     /* background-image: url('../docs/music.jpg'); */
 
        color: black !important;
@@ -164,11 +174,11 @@ color:red;
 
 
 .pie {
-    left:-320px  !important;
+    left:-350px  !important;
     position: relative;
-    color:red !important;
+    color:whitesmoke !important;
 top: 100px !important;
-  background-color: grey !important;
+  background-color: #000080 !important;
   height:580px;
   width:520px;
   margin-left: 600px;
@@ -186,7 +196,13 @@ top: 100px !important;
 /* font-family: ui-rounded;  */
 color: white !important;
 }
+.art{
+    position: relative;
+margin-left:-300px;
+  bottom:800px;
+ 
 
+}
 
 </style>
 
