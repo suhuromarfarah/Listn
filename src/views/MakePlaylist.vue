@@ -1,12 +1,12 @@
 <template >
   <v-card
-    color="grey"
     dark
     :loading="isUpdating"
     class="card"
   >
+  <div class='sizing'>
   <v-container class="size">
-    <div class='form'>
+    
     <v-row
       class="pa-4"
       align="center"
@@ -28,6 +28,8 @@
               v-model="playlistName"
               :disabled="isUpdating"
               filled
+              background-color='grey'
+          
               label="Enter playlist name"
             ></v-text-field>
             
@@ -41,6 +43,8 @@
               :disabled="isUpdating"
               filled
               label="Enter playlist description"
+              background-color='grey'
+          
             ></v-text-field>
           </v-col>
           <v-col cols="12" >
@@ -51,6 +55,8 @@
               item-text="songName"
               item-value="songName"
               multiple
+              background-color='grey'
+          
               v-model="songName"
             >
              </v-text-field>
@@ -85,8 +91,9 @@
 
         </v-row>
       </v-container>
-      </div>
+      
   </v-container>
+  </div>
    
   </v-card>
 </template>
@@ -234,6 +241,9 @@ import YouTube from "simple-youtube-api";
 .card{
   height: 1100px;
   justify-items: center;
+  background-image: url('../assets/bg.jpg'); 
+  background-position: center;
+  background-size: cover;
 
 }
 
@@ -246,16 +256,16 @@ import YouTube from "simple-youtube-api";
   color: "black"
 }
 
+.sizing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-.form {
-  background-color:silver;
-  width: 100%;
-  margin: auto;
-  padding: 30px;
-  margin-top:50px;
-  border:2px solid black;
-  border-radius: 10%;
 }
 
+
+
+
 </style>
+
 

@@ -20,7 +20,7 @@ export default {
     this.gradient2.addColorStop(1, "rgba(246, 185, 44, 0.9)");
     this.renderChart(
       {
-        labels: ["😁", " 😢", "🥰", "😌", "🥳"],
+        labels: ["😁 Happy", " 😢 Sad", "🥰 Romantic", "😌 Calm", "🥳 Party"],
         datasets: [
           {
             backgroundColor: [this.gradient, this.gradient2, "#00D8FF","#DAA520","#000080"],

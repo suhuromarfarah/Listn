@@ -35,7 +35,7 @@
       <hr/>
       </div>
 
-      <youtube  player-height="200" player-width='400' :video-id="videoId" :player-vars=" {  autoplay: 1  } " @ready="ready" @playing="playing"></youtube>
+      <youtube  player-height="300" player-width='500' :video-id="videoId" :player-vars=" {  autoplay: 1  } " @ready="ready" @playing="playing"></youtube>
       </div>
 
 
@@ -211,7 +211,15 @@
 h1, h2{
   color:black;
   font-weight: 400;
-  margin-top: 20px
+  margin-top: 20px;
+}
+
+h2{
+  font-size: 30px;
+}
+
+h1{
+  font-size: 40px;
 }
 h3 {
   margin: 40px 0 0;
@@ -234,16 +242,15 @@ a {
   background-image: url('../assets/bg.jpg'); 
   background-position: center;
   background-size: cover;
-  height:700px;
+  height:950px;
   
 }
 
 .selection{
   width: 500px;
-  height: 300px;
+  height: 400px;
   text-align: center;
   margin:auto;
-  background-color: #gray;
   margin-top:10%;
 }
 
@@ -253,9 +260,8 @@ hr{
 
 .music{
   width: 500px;
-  height: 300px;
+  height: 400px;
   text-align: center;
-  background-color: #gray;
   margin: auto;
   margin-top: 10%
 }

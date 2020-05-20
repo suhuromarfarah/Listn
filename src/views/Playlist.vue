@@ -1,17 +1,15 @@
 
 <template>
 <div class ="background">
-  <div class='form'>
- <h1> My Playlist </h1>
-<div class = "line">
-<hr />
-</div>
+
+ 
+
  <div class='center'>
   <template v-for="playlist in playlists">
    
-  <v-card :key='playlist' class="mx-10 ma-10" max-width="350" align="center" tile>
-    <v-card-title :key='playlist' class="justify-center">{{playlist.playlistName}}</v-card-title>
-    <v-card-subtitle :key='playlist'>{{playlist.playlistDescription}}</v-card-subtitle>
+  <v-card :key='playlist' class="play" max-width="400" align="center" tile>
+   <h1>{{playlist.playlistName}}</h1>
+    <h2>{{playlist.playlistDescription}}</h2>
   <template v-for="(song,index)  in playlist.songs">
           <div :key="index" class="song-container">
              <youtube
@@ -33,7 +31,7 @@
   </template>
    </div>
   </div>
-  </div>
+
 </template>
 
 <script>
@@ -93,13 +91,13 @@ export default {
 
 .center{
   margin:auto;
-  padding-left:50px;
+  padding-top: 200px;
+
 }
 
 .rounded-card{
     border-radius:10%;
     border: 2px solid;
-    width: 45px;
     margin: auto;
     display: inline;
     
@@ -138,13 +136,11 @@ export default {
 .background{
   text-align:center;
   /* background-color:gray; */
-  padding-top: 300px;
-  padding-left: 750px;
- background-image: url('../docs/guitar.jpg');
-    height: 1200px;
-    background-position: center;
-    
-    background-size: cover;
+
+  background-image: url('../docs/guitar.jpg');
+  height: 800px;
+  background-position: center;
+  background-size: cover;
     
 }
 
@@ -153,7 +149,6 @@ export default {
 }
 
 .form {
-  background-color:silver;
   width: 50%;
 margin:auto;
   padding: 30px;
@@ -162,5 +157,12 @@ margin:auto;
   border:2px solid black;
   border-radius: 10%;
   position: relative;
+}
+.play{
+  border-radius:10%;
+  margin:auto;
+}
+h2{
+  font-weight:400;
 }
 </style>
