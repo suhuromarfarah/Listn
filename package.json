@@ -9,6 +9,8 @@
     "dev": "nodemon server/index.js"
   },
   "dependencies": {
+    "animate.css": "^4.1.0",
+    "animated-vue": "^0.5.3",
     "axios": "^0.19.2",
     "body-parser": "^1.19.0",
     "chart.js": "^2.9.3",
