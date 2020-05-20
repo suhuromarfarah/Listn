@@ -1,20 +1,13 @@
 <template>
   <div class="hello">
-    <div class='form'>
+
     <div class="selection">
 
-<h1> LISTN</h1>
+<h1> What is your mood?</h1>
 <div class = " tag">
 <hr/>
 </div>
-    <h3>
-      Select your mood. Listn will pick a song for you!
-    </h3>
-    <!--<model-select :options="options"
-                    v-model="item"
-                    placeholder="select item"
-                    v-on:input="loadMusic">
-    </model-select>  -->
+
     <ul>
       <li 
         :key='emo'
@@ -36,12 +29,15 @@
      
       </div>
       </div>
-      
-      <h2 class = "listn"> Listn suggests  <span style='font-weight:900;color:red'> {{  this.videoName  }}. </span>   </h2>
-       
+      <div class="music">
+        <h1> Listn suggests:  <span style='color:red'> {{  this.videoName  }}. </span>   </h1>
+      <div class = " tag">
+      <hr/>
+      </div>
 
-      <youtube  player-height="300" player-width='450' :video-id="videoId" :player-vars=" {  autoplay: 1  } " @ready="ready" @playing="playing"></youtube>
-     </div>
+      <youtube  player-height="200" player-width='400' :video-id="videoId" :player-vars=" {  autoplay: 1  } " @ready="ready" @playing="playing"></youtube>
+      </div>
+
 
   </div>
 </template>
@@ -104,7 +100,6 @@
         {  name: '1 Night', videoId : 'sjle_ZI4elo'  },
         
         {  name: 'Affection', videoId : 'uJoMqYumxmA'  },
-        {  name: 'I wish I missed my ex', videoId : 'a7kT52xL-7g'  },
         {  name: 'Sober', videoId : 'jx96Twg-Aew'  },
         
         {  name: 'Better friends', videoId : 'j7vKsUYpvIQ'  },
@@ -186,9 +181,7 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.tag {
-  border-top:1px solid black;
-}
+
 .emo-item:hover{
   animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
   transform: translate3d(0, 0, 0);
@@ -214,6 +207,12 @@
   text-shadow: 0px 0px 30px #43D8C9, 
                0px 0px 30px #B86CD9;
 }
+
+h1, h2{
+  color:black;
+  font-weight: 400;
+  margin-top: 20px
+}
 h3 {
   margin: 40px 0 0;
 }
@@ -229,36 +228,36 @@ a {
   color: #42b983;
 }
 .hello{
-  border: solid 1px black;
+  border: solid 1px;
+  display: flex;
   text-align:center;
-  background-color: gray;
-  /* background-image: "src/docs/guitar.jpg"; */
-  height:1000px;
+  background-image: url('../assets/bg.jpg'); 
+  background-position: center;
+  background-size: cover;
+  height:700px;
   
 }
 
-.listn{
-  padding-top:30px;
-}
 .selection{
-  border: solid 1px black;
-  width: 450px;
+  width: 500px;
+  height: 300px;
   text-align: center;
   margin:auto;
-  border-radius: 10%;
-  background-color: lightgray;
-   margin-top:10%;
-  
+  background-color: #gray;
+  margin-top:10%;
 }
 
-.form {
-  background-color:silver;
-  width: 35%;
+hr{
+  margin-bottom: 30px;
+}
+
+.music{
+  width: 500px;
+  height: 300px;
+  text-align: center;
+  background-color: #gray;
   margin: auto;
-  padding: 30px;
-  margin-top:150px;
-  border:2px solid black;
-  border-radius: 10%;
+  margin-top: 10%
 }
 
 </style>

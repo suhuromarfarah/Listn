@@ -4,6 +4,7 @@ import Dashboard from "../views/Dashboard.vue";
 import Mood from "../views/Mood.vue"; 
 import Playlist from "../views/Playlist.vue"; 
 import musicStat from "../components/musicStat.vue"; 
+import Questions from "../views/Questions.vue"; 
 
 
 // import Navbar from "src/components/Navbar.vue"; 
@@ -12,12 +13,12 @@ import musicStat from "../components/musicStat.vue";
 Vue.use(VueRouter);
 
 const routes = [
-  // {
+  {
 
-  //   path: "/login",
-  //   name: "login",
-  //   component: Login
-  // },
+    path: "/Questions",
+    name: "questions",
+    component: Questions
+  },
   {path:"/Mood",
     name: 'Mood',
     component: Mood

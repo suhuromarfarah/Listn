@@ -13,6 +13,7 @@
             :color="item.color"
             dark
             height="250"
+            width="500"
             class="mt-11 ma-5"
             
           >
@@ -30,12 +31,19 @@
       >
 <template>
   <v-container fluid>
-      <v-select
-        :items="mood"
-        :menu-props="{ top: true, offsetY: true }"
-        label="Label"
-      ></v-select>
-
+  <div>
+      <ul>
+      <li 
+        :key='emo'
+        v-for='emo in emoji' 
+        style='font-size:4em; margin:0px'
+        v-on:click='pickMusic(emo)'
+        v-bind:class="{'emo-item':true, 'active':(curMood && emo.value === curMood.value)}">
+        
+          {{  emo.disp }}
+      </li>
+    </ul>
+      </div>
   </v-container>
 </template>
       </v-row>
@@ -79,11 +87,6 @@
       >
 <template>
   <v-container fluid>
-      <v-select
-        :items="genre"
-        :menu-props="{ top: true, offsetY: true }"
-        label="Label"
-      ></v-select>
 
   </v-container>
 </template>
@@ -167,8 +170,14 @@
         }
       ],
 
-      mood: ['Happy', 'Sad', 'Romantic', 'Gloomy', "Calm"],
-      genre: ['Hip Hop', 'RnB', 'Pop', 'Country', "Rock"],
+      emoji: [
+          {  disp: '😁', value:'happy'  },
+          {  disp: '😢', value:'sad'  },
+          {  disp: '🥰', value:'romantic'  },
+          {  disp: '😌', value:'chill'  },
+          {  disp: '🥳', value:'party'  },
+          
+          ],
     }),
     computed: {
       likesAllFruit () {
