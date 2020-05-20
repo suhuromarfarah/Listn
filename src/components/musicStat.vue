@@ -10,7 +10,9 @@
 <hr class ='line'>
      <pieChart/>
     </div>
-
+<div class="trend" >
+     <trending/>
+    </div>
   <!-- <vs-card class="card"> -->
     <div class="chart">
 <h1> LISTN Top 10 Songs</h1>
@@ -29,17 +31,27 @@
  <!-- </vs-card> -->
 
 <div class = "art">
-<carousel-3d>
-  <slide :index="0">
-    <img src="../docs/artone.jpg" style="width:100%">  </slide>
-  <slide :index="1">
-    <img src="../docs/arttwo.jpg" style="width:100%"> 
-  </slide>
- <slide :index="2">
-    <img src="../docs/artthree.jpg" style="width:100%">  
-  </slide>
-</carousel-3d>
+  <v-carousel cycle :show-arrows="false">
+    <v-carousel-item
+      v-for="(item,i) in itemstwo"
+      :key="i"
+      :src="item.src"
+      height: 100em
+    ></v-carousel-item>
+  </v-carousel>
  </div>
+
+<!-- <div class = "arttwo">
+   <v-carousel :show-arrows="false">
+    <v-carousel-item
+      v-for="(item,i) in items"
+      :key="i"
+      :src="item.src"
+    ></v-carousel-item>
+  </v-carousel>
+ </div> -->
+
+
 
 </div>
 
@@ -48,14 +60,15 @@
 <script>
 // import albumArt from "./albumArt";
 import pieChart from "./pieChart.vue";
-import { Carousel3d, Slide } from 'vue-carousel-3d';
+import trending from "./trending.vue";
+
 export default {
   name: "Performance",
   components: {
     // albumArt,
     pieChart,
-    Carousel3d,
-    Slide
+    trending
+   
   },
   data() {
     return {
@@ -122,6 +135,34 @@ export default {
          
           
         ],
+itemstwo: [
+          {
+            src: 'https://www.albumartexchange.com/coverart/gallery/fi/fionaapple_extraordinarymachine_40b.jpg',
+          },
+          {
+            src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
+          },
+          {
+            src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
+          },
+          {
+            src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
+          },
+        ],
+items: [
+          {
+            src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
+          },
+          {
+            src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
+          },
+          {
+            src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
+          },
+          {
+            src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
+          },
+        ],
     };
   },
   methods: {
@@ -137,7 +178,7 @@ export default {
 
 <style >
    #landing-page {
-  /* background-color: grey; */
+  /* background-color: white; */
     background-image: url('../docs/player.png');
     height: 1200px;
     background-position: center;
@@ -147,23 +188,23 @@ export default {
 /* background-color: burlywood */
   }
 .chart{
-    background-color: grey!important;
+    background-color: black!important;
   height:600px;
   width:520px;
   padding:20px;
-  margin-left:1100px;
-  bottom:500px;
+  margin-left:535px;
+  bottom:1600px;
   border: 1px solid black;
  text-align: center;
   position: relative;
   font-family: Arial, Helvetica, sans-serif !important;
   border-radius:10%;
-color:black;
+color:white;
 
 }
 
 .elevation-1 {
-    background-color: lightgray !important;
+    background-color: #696969 !important;
     /* background-image: url('../docs/music.jpg'); */
    
        color: black !important;
@@ -179,12 +220,12 @@ color:black;
 .pie {
     left:-350px  !important;
     position: relative;
-    color:black !important;
-top: 100px !important;
-  background-color: grey !important;
+    color:white !important;
+top: 40px !important;
+  background-color: black !important;
   height:600px;
   width:520px;
-  margin-left: 850px;
+  margin-left:360px;
   border: 1px solid black;
  text-align: center;
  border-radius:10%;
@@ -201,12 +242,28 @@ color: white !important;
 }
 .art{
     position: relative;
-margin-left:100px;
-  bottom:465px;
- 
+  bottom:1600px;
+width:43%;
+left:-2em;
+
 
 }
+/* 
+.arttwo{
+    position: relative;
+  bottom:1700px;
+width:20%;
+left:0em;
 
+
+} */
+.trend{
+
+  position: relative;
+left:12em;
+bottom:550px;
+
+}
 </style>
 
 
