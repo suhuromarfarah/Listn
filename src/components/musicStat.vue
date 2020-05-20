@@ -10,9 +10,7 @@
 <hr class ='line'>
      <pieChart/>
     </div>
-<div class="trend" >
-     <trending/>
-    </div>
+
   <!-- <vs-card class="card"> -->
     <div class="chart">
 <h1> LISTN Top 10 Songs</h1>
@@ -31,27 +29,17 @@
  <!-- </vs-card> -->
 
 <div class = "art">
-  <v-carousel cycle :show-arrows="false">
-    <v-carousel-item
-      v-for="(item,i) in itemstwo"
-      :key="i"
-      :src="item.src"
-      height: 100em
-    ></v-carousel-item>
-  </v-carousel>
+<carousel-3d>
+  <slide :index="0">
+    <img src="../docs/artone.jpg" style="width:100%">  </slide>
+  <slide :index="1">
+    <img src="../docs/arttwo.jpg" style="width:100%"> 
+  </slide>
+ <slide :index="2">
+    <img src="../docs/artthree.jpg" style="width:100%">  
+  </slide>
+</carousel-3d>
  </div>
-
-<!-- <div class = "arttwo">
-   <v-carousel :show-arrows="false">
-    <v-carousel-item
-      v-for="(item,i) in items"
-      :key="i"
-      :src="item.src"
-    ></v-carousel-item>
-  </v-carousel>
- </div> -->
-
-
 
 </div>
 
@@ -60,15 +48,14 @@
 <script>
 // import albumArt from "./albumArt";
 import pieChart from "./pieChart.vue";
-import trending from "./trending.vue";
-
+import { Carousel3d, Slide } from 'vue-carousel-3d';
 export default {
   name: "Performance",
   components: {
     // albumArt,
     pieChart,
-    trending
-   
+    Carousel3d,
+    Slide
   },
   data() {
     return {
@@ -135,34 +122,6 @@ export default {
          
           
         ],
-itemstwo: [
-          {
-            src: 'https://www.albumartexchange.com/coverart/gallery/fi/fionaapple_extraordinarymachine_40b.jpg',
-          },
-          {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
-          },
-          {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
-          },
-          {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
-          },
-        ],
-items: [
-          {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
-          },
-          {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
-          },
-          {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
-          },
-          {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
-          },
-        ],
     };
   },
   methods: {
@@ -178,7 +137,7 @@ items: [
 
 <style >
    #landing-page {
-  /* background-color: white; */
+  /* background-color: grey; */
     background-image: url('../docs/player.png');
     height: 1200px;
     background-position: center;
@@ -188,82 +147,53 @@ items: [
 /* background-color: burlywood */
   }
 .chart{
-    background-color: black!important;
+    background-color: grey!important;
   height:600px;
   width:520px;
   padding:20px;
-  margin-left:535px;
-  bottom:1600px;
+  margin-left:1100px;
+  bottom:500px;
   border: 1px solid black;
  text-align: center;
   position: relative;
   font-family: Arial, Helvetica, sans-serif !important;
   border-radius:10%;
-color:white;
-
+color:black;
 }
-
 .elevation-1 {
-    background-color: #696969 !important;
+    background-color: lightgray !important;
     /* background-image: url('../docs/music.jpg'); */
    
        color: black !important;
   font-family: Arial, Helvetica, sans-serif !important;
    font: size 343oem !important;
-
 }
 .line{
   border-top:1px solid black;
   margin-bottom:10px;
 }
-
 .pie {
     left:-350px  !important;
     position: relative;
-    color:white !important;
-top: 40px !important;
-  background-color: black !important;
+    color:black !important;
+top: 100px !important;
+  background-color: grey !important;
   height:600px;
   width:520px;
-  margin-left:360px;
+  margin-left: 850px;
   border: 1px solid black;
  text-align: center;
  border-radius:10%;
  padding:20px;
 }
-
-
-
-
-
 .name{
 /* font-family: ui-rounded;  */
 color: white !important;
 }
 .art{
     position: relative;
-  bottom:1600px;
-width:43%;
-left:-2em;
-
-
-}
-/* 
-.arttwo{
-    position: relative;
-  bottom:1700px;
-width:20%;
-left:0em;
-
-
-} */
-.trend{
-
-  position: relative;
-left:12em;
-bottom:550px;
-
+margin-left:100px;
+  bottom:465px;
+ 
 }
 </style>
-
-
