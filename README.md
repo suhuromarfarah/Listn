@@ -1,3 +1,12 @@
+# Listn
+
+Listn is a full stack Vue app allowing user's to listen to music depending on their mood and to make customizable playlist using a Youtube API.
+
+![Home](/public/1.jpeg)
+![Mood](/public/2.jpeg)
+![Make a playlist](/public/3.jpeg)
+![Playlist](/public/4.jpeg)
+![Stats](/public/5.jpeg)
 ## Project setup
 ```
 npm install
